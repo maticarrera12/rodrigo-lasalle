@@ -1,0 +1,78 @@
+---
+import { Icon } from "astro-icon/components";
+import { CONSULTATION_URL, ESTABLISHED_YEAR, WHATSAPP_URL } from "@/const";
+import HeroStats from "@workspace/ui/components/astro/HeroStats.astro";
+---
+
+<section class="w-full pt-28 pb-16 lg:pt-32 lg:pb-0">
+	<div class="container flex flex-col gap-10 lg:gap-12 pb-24">
+		<div class="flex w-full items-center justify-between gap-4">
+			<div class="flex min-w-0 items-center gap-2">
+				<span class="h-1.5 w-1.5 shrink-0 rounded-full bg-calido-3"></span>
+				<p class="truncate text-xs font-medium uppercase tracking-[0.12em] text-calido-4">
+					Estudio jurídico — San Fernando, Buenos Aires
+				</p>
+			</div>
+			<p class="shrink-0 text-xs font-medium uppercase tracking-[0.12em] text-calido-4">
+				Est. {ESTABLISHED_YEAR}
+			</p>
+		</div>
+
+		<div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-10 xl:gap-16">
+			<div class="flex max-w-xl flex-col lg:max-w-2xl">
+				<h1 class="text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.08] text-calido-1 font-serif-ebgaramond">
+					Entender un problema legal ya es difícil.
+					<span class="text-calido-3 italic">Hablar con tu abogado</span> no debería serlo.
+				</h1>
+				<p class="pt-6 text-lg leading-relaxed text-calido-4 lg:pt-8">
+					Asesoramiento claro, cercano y sin vueltas para personas y familias en Buenos Aires.
+					Diez años acompañando casos con criterio y palabras que se entienden.
+				</p>
+				<div class="flex flex-col gap-5 pt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
+					<a
+						href={CONSULTATION_URL}
+						class="group inline-flex w-fit items-center gap-2 rounded-full bg-calido-2 px-6 py-3 text-sm text-primary-foreground transition-colors hover:bg-calido-1"
+					>
+						Agendar una consulta
+						<Icon
+							name="mdi:arrow-right"
+							class="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+						/>
+					</a>
+					<a
+						href={WHATSAPP_URL}
+						class="group inline-flex w-fit items-center gap-1.5 pb-0.5 text-sm font-light transition-all duration-100 hover:border-b hover:border-calido-3"
+					>
+						Escribir por WhatsApp
+						<Icon
+							name="mdi:arrow-top-right"
+							class="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5"
+						/>
+					</a>
+				</div>
+			</div>
+
+			<div class="mx-auto w-full max-w-72 shrink-0 lg:mx-0">
+				<figure>
+					<img
+						src="/images/hero-placeholder.svg"
+						alt="Rodrigo Lasalle, abogado"
+						width="288"
+						height="360"
+						class="aspect-4/5 w-full object-cover"
+						loading="eager"
+						decoding="async"
+					/>
+				</figure>
+				<div class="mt-2 flex items-baseline justify-between gap-4">
+					<p class="text-xs uppercase tracking-widest text-calido-4">Foto · Estudio Lasalle</p>
+					<p class="text-xs font-serif italic text-calido-4">
+						Rodrigo Lasalle, {new Date().getFullYear()}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<HeroStats />
+</section>

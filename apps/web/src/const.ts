@@ -28,7 +28,34 @@ export const SOCIAL_LINKS = {
 };
 
 export const NAV_LINKS = [
-  { href: '/', label: 'Inicio' },
-  { href: '/#sobre-mi', label: 'Sobre Mi' },
-  { href: '/#proyectos', label: 'Proyectos' },
+  { href: '/conoceme', label: 'Conoceme' },
+  { href: '/especialidades', label: 'Especialidades' },
+  { href: '/casos-de-exito', label: 'Casos de exito' },
 ];
+
+export const ESTABLISHED_YEAR = 2020;
+export const WHATSAPP_URL = 'https://wa.me/';
+export const CONSULTATION_URL = '/#contacto';
+
+export const HERO_STATS = [
+  {
+    label: 'Trayectoria',
+    highlight: '10 años',
+    description: 'desde 2015, ejercicio independiente',
+  },
+  {
+    label: 'Casos atendidos',
+    highlight: '+ 320',
+    description: 'familia, laboral, sucesiones',
+  },
+  {
+    label: 'Matrícula',
+    highlight: 'CASI Tomo IX',
+    description: 'Colegio de Abogados de San Isidro',
+  },
+  {
+    label: 'Forma de trabajo',
+    highlight: 'Presencial',
+    description: 'y por videollamada · Argentina',
+  },
+] as const;

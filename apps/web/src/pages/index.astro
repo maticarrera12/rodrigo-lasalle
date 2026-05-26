@@ -1,7 +1,7 @@
 ---
 import "@workspace/ui/globals.css"
-import { Button } from "@workspace/ui/components/react/button"
 import Main from "@/layouts/main.astro"
+import Home from "@/components/Home.astro"
 ---
 
 <html lang="en">
@@ -9,11 +9,11 @@ import Main from "@/layouts/main.astro"
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Astro App</title>
+    <title>Rodrigo Lasalle | Abogado | Zona Norte</title>
   </head>
   <body>
-    <div class="flex min-h-svh p-6">
-<Main>
-</Main>
+    <Main>
+      <Home/>
+    </Main>
   </body>
 </html>

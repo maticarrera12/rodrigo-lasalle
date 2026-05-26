@@ -6,7 +6,7 @@ import {
 	MOBILE_MENU_CLOUD_FLIP,
 	} from "@/lib/cloud-strip";
 import ThemeToggle from "@workspace/ui/components/astro/ThemeToggle.astro";
-import { NAV_LINKS } from "@/const";
+import { NAV_LINKS, CONSULTATION_URL } from "@/const";
 const path = Astro.url.pathname;
 const hash = Astro.url.hash;
 
@@ -24,55 +24,69 @@ function isSamePageNav(href: string): boolean {
 ---
 
 <header class="nav-header fixed top-0 right-0 left-0 z-50">
-	<div class="container flex items-center justify-between py-4">
-		<div class="flex items-center gap-4 sm:gap-6">
+	<div class="container flex items-center justify-between gap-4 py-4 lg:grid lg:grid-cols-[1fr_auto_1fr]">
+		<a
+			href="/"
+			data-nav="/"
+			class="text-lg font-bold font-serif text-calido-2 shrink-0"
+			aria-label="Inicio"
+		>
+			Rodrigo Lasalle
+		</a>
+
+		<ul class="m-0 hidden list-none justify-center gap-8 p-0 lg:flex">
+			{
+				NAV_LINKS.map((link) => (
+					<li>
+						<a
+							href={link.href}
+							data-nav={link.href}
+							data-nav-link
+							data-same-page={isSamePageNav(link.href) ? "true" : undefined}
+							class:list={[
+								"text-[0.9375rem]",
+								isActive(link.href)
+									? "text-foreground"
+									: "text-muted-foreground hover:text-foreground",
+							]}
+						>
+							{link.label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<div class="flex shrink-0 items-center justify-end gap-3">
 			<a
-				href="/"
-				data-nav="/"
-				class="text-lg font-bold text-primary"
-				aria-label="Inicio"
+				href={CONSULTATION_URL}
+				class="group hidden items-center gap-1.5 rounded-full border border-calido-2 px-4 py-2 text-sm text-calido-2 transition-colors hover:bg-calido-2 hover:text-primary-foreground lg:inline-flex"
 			>
-				Matias Carrera
+				Agendar consulta
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="currentColor"
+					class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5"
+					aria-hidden="true"
+				>
+					<path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+				</svg>
 			</a>
 
-			<ul class="m-0 hidden list-none gap-4 p-0 sm:flex sm:gap-8">
-				{
-					NAV_LINKS.map((link) => (
-						<li>
-							<a
-								href={link.href}
-								data-nav={link.href}
-								data-nav-link
-								data-same-page={isSamePageNav(link.href) ? "true" : undefined}
-								class:list={[
-									"text-[0.9375rem]",
-									isActive(link.href)
-										? "text-foreground"
-										: "text-muted-foreground hover:text-foreground",
-								]}
-							>
-								{link.label}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</div>
-
-		<div class="flex items-center gap-3">
 			<ThemeToggle />
 
 			<button
 				type="button"
 				id="mobile-menu-btn"
-				class="mobile-menu-btn sm:hidden flex flex-col items-center justify-center gap-[5px] w-8 h-8 text-foreground hover:text-primary transition-colors"
+				class="mobile-menu-btn flex h-8 w-8 flex-col items-center justify-center gap-[5px] text-foreground transition-colors hover:text-primary lg:hidden"
 				aria-label="Abrir menú"
 				aria-expanded="false"
 				aria-controls="mobile-menu"
 			>
-				<span class="menu-bar block h-[2px] w-5 bg-current rounded-full origin-center"></span>
-				<span class="menu-bar block h-[2px] w-5 bg-current rounded-full origin-center"></span>
-				<span class="menu-bar block h-[2px] w-5 bg-current rounded-full origin-center"></span>
+				<span class="menu-bar block h-[2px] w-5 origin-center rounded-full bg-current"></span>
+				<span class="menu-bar block h-[2px] w-5 origin-center rounded-full bg-current"></span>
+				<span class="menu-bar block h-[2px] w-5 origin-center rounded-full bg-current"></span>
 			</button>
 		</div>
 	</div>
@@ -151,7 +165,7 @@ function isSamePageNav(href: string): boolean {
 		transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
-	@media (max-width: 639px) {
+	@media (max-width: 1023px) {
 		.mobile-menu {
 			display: flex;
 		}
