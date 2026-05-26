@@ -3,7 +3,7 @@ export type ColorMode = 'light' | 'dark';
 export const STORAGE_KEY = 'site-color-mode';
 
 /** Modo cuando no hay preferencia guardada */
-export const DEFAULT_COLOR_MODE: ColorMode = 'dark';
+export const DEFAULT_COLOR_MODE: ColorMode = 'light';
 
 export const COLOR_SWAP = {
 	duration: 200,
