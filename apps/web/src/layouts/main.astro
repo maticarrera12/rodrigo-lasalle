@@ -1,5 +1,7 @@
 ---
+import Nav from "@/components/Nav.astro"
 import "@workspace/ui/globals.css"
+import { getThemeInitInlineScript } from "@workspace/ui/lib/theme-init-script"
 ---
 
 <html lang="en">
@@ -8,8 +10,17 @@ import "@workspace/ui/globals.css"
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Astro App</title>
+    <script is:inline set:html={getThemeInitInlineScript()} />
   </head>
   <body>
+    <Nav />
     <slot />
+    <script>
+
+
+      import { initThemeClient } from "@/scripts/theme-client";
+
+      initThemeClient();
+		</script>
   </body>
-</html>
+</html> 

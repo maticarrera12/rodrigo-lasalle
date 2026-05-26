@@ -13,6 +13,6 @@
       "@workspace/ui/*": ["./src/*"]
     }
   },
-  "include": ["."],
+  "include": [".", "../../apps/web/src/const.ts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -39,7 +39,8 @@
   "exports": {
     "./globals.css": "./src/styles/globals.css",
     "./lib/*": "./src/lib/*.ts",
-    "./components/*": "./src/components/*.tsx",
+    "./components/react/*": "./src/components/react/*.tsx",
+    "./components/astro/*": "./src/components/astro/*",
     "./hooks/*": "./src/hooks/*.ts"
   }
 }
