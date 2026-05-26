@@ -1,0 +1,123 @@
+---
+import { ABOUT } from "@/const";
+
+const qaDelays = [80, 160, 200];
+---
+
+<section id="conoceme" class="w-full pb-24 pt-28 lg:pb-32 lg:pt-32">
+	<div class="container pt-16 lg:pt-24">
+		<div
+			class="reveal mb-16 grid gap-8 lg:mb-24 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-16 xl:gap-20"
+			data-reveal
+		>
+			<div>
+				<p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+					— 03 / Sobre mí
+				</p>
+				<h1 class="pt-5 text-[clamp(2.25rem,4.5vw,3rem)] leading-[1.08] text-calido-1 font-serif-ebgaramond">
+					Una <span class="text-calido-3 italic">conversación</span>, antes que un expediente.
+				</h1>
+			</div>
+			<p class="max-w-md text-base leading-relaxed text-calido-4 lg:pt-16 lg:text-lg">
+				Soy abogado desde 2015. Trabajo en San Fernando, donde crecí. Lo que sigue es la versión corta
+				de cómo pienso el oficio.
+			</p>
+		</div>
+
+		<div class="grid gap-14 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-16 xl:gap-20">
+			<div class="reveal lg:sticky lg:top-28 lg:self-start" data-reveal>
+				<figure>
+					<img
+						src={ABOUT.photo}
+						alt="Rodrigo Lasalle en su estudio"
+						width="400"
+						height="500"
+						class="aspect-4/5 w-full object-cover"
+						loading="lazy"
+						decoding="async"
+					/>
+				</figure>
+				<div class="mt-3 flex items-baseline justify-between gap-4">
+					<p class="text-xs uppercase tracking-[0.12em] text-calido-4">{ABOUT.photoCaption[0]}</p>
+					<p class="text-xs font-serif italic text-calido-4">{ABOUT.photoCaption[1]}</p>
+				</div>
+			</div>
+
+			<div class="divide-y divide-border">
+				<div class="reveal py-9 first:pt-0 lg:py-10" data-reveal data-reveal-delay={qaDelays[0]}>
+					<p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+						{ABOUT.qa[0].q}
+					</p>
+					<p
+						class="pt-4 max-w-2xl text-lg leading-[1.7] text-calido-1 font-serif-ebgaramond [&_em]:text-calido-3 [&_em]:italic"
+						set:html={ABOUT.qa[0].aHtml}
+					/>
+				</div>
+
+				<blockquote
+					class="reveal py-10 lg:py-12"
+					data-reveal
+					data-reveal-delay={120}
+				>
+					<p class="max-w-2xl text-[clamp(1.35rem,2.4vw,1.875rem)] leading-[1.45] text-calido-1 font-serif-ebgaramond italic">
+						"{ABOUT.pull}"
+					</p>
+				</blockquote>
+
+				{
+					ABOUT.qa.slice(1).map((item, index) => (
+						<div class="reveal py-9 lg:py-10" data-reveal data-reveal-delay={qaDelays[index + 1]}>
+							<p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+								{item.q}
+							</p>
+							<p
+								class="pt-4 max-w-2xl text-lg leading-[1.7] text-calido-1 font-serif-ebgaramond [&_em]:text-calido-3 [&_em]:italic"
+								set:html={item.aHtml}
+							/>
+						</div>
+					))
+				}
+
+				<div
+					class="reveal grid gap-10 py-10 sm:grid-cols-3 sm:gap-8 lg:py-12"
+					data-reveal
+					data-reveal-delay={240}
+				>
+					{
+						ABOUT.bio.map((item) => (
+							<div>
+								<p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+									{item.k}
+								</p>
+								<p class="pt-3 text-base leading-snug text-calido-1">{item.v}</p>
+								<p class="pt-1.5 text-sm leading-relaxed text-calido-4">{item.note}</p>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.reveal {
+		opacity: 0;
+		transform: translateY(1rem);
+		transition:
+			opacity 0.55s ease,
+			transform 0.55s ease;
+	}
+
+	.reveal.is-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	import { initReveal } from "@/scripts/reveal";
+
+	initReveal();
+	document.addEventListener("astro:page-load", initReveal);
+</script>

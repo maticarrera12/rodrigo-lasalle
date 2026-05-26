@@ -72,16 +72,16 @@
 
 .dark {
   /* misma paleta invertida — navy de fondo, crema y dorado de acento */
-  --calido-1: #f5f1e6;
+  --calido-1: #e2dac2;
   --calido-2: #f5f1e6;
-  --calido-3: #b8956a;
+  --calido-3: #f4e588;
   --calido-4: #8a939e;
   --sobrio-1: #f5f1e6;
   --sobrio-2: #f5f1e6;
   --sobrio-3: #b8956a;
   --sobrio-4: #8a939e;
 
-  --background: #000000;
+  --background: #161616;
   --foreground: #f5f1e6;
   --card: #0d1520;
   --card-foreground: #f5f1e6;

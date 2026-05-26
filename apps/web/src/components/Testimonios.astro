@@ -1,0 +1,83 @@
+---
+import { TESTIMONIOS } from "@/const";
+---
+
+<section id="testimonios" class="w-full pb-24 lg:pb-32">
+	<div class="container border-t border-border pt-16 lg:pt-24">
+		<div
+			class="reveal mb-16 grid gap-8 lg:mb-20 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-16 xl:gap-20"
+			data-reveal
+		>
+			<div>
+				<p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+					— 02 / Clientes
+				</p>
+				<h2 class="pt-5 text-[clamp(2rem,4vw,2.75rem)] leading-[1.08] text-calido-1 font-serif-ebgaramond">
+					Lo que dicen <span class="text-calido-3 italic">las personas</span> que pasaron por acá.
+				</h2>
+			</div>
+			<p class="max-w-md text-base leading-relaxed text-calido-4 lg:pt-5 lg:text-lg">
+				Cuatro testimonios reales. Quien quiera, puede pedirme referencias concretas: tengo varios clientes
+				dispuestos a hablar por teléfono con quien esté evaluando contratarme.
+			</p>
+		</div>
+
+		<div class="border-y border-border lg:grid lg:grid-cols-2">
+			{
+				TESTIMONIOS.map((testimonio, index) => (
+					<article
+						class="reveal p-8 lg:p-10"
+						data-reveal
+						data-reveal-delay={index * 80}
+					>
+							<p class="text-[clamp(1.25rem,2.15vw,1.875rem)] leading-[1.55] text-calido-1 font-serif-ebgaramond">
+								<span class="text-calido-3" aria-hidden="true">“</span>
+								{testimonio.q}
+								<span class="text-calido-3" aria-hidden="true">”</span>
+							</p>
+
+							<div class="mt-8 flex items-center gap-4 lg:mt-10">
+								<img
+									src={testimonio.avatar}
+									alt=""
+									width="56"
+									height="56"
+									class="h-14 w-14 shrink-0 rounded-full object-cover"
+									loading="lazy"
+									decoding="async"
+								/>
+								<div class="min-w-0">
+									<p class="text-base text-calido-1">{testimonio.n}</p>
+									<p class="pt-1 text-xs uppercase tracking-[0.12em] text-calido-4">
+										{testimonio.r}
+									</p>
+								</div>
+							</div>
+						</article>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.reveal {
+		opacity: 0;
+		transform: translateY(1rem);
+		transition:
+			opacity 0.55s ease,
+			transform 0.55s ease;
+	}
+
+	.reveal.is-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	import { initReveal } from "@/scripts/reveal";
+
+	initReveal();
+	document.addEventListener("astro:page-load", initReveal);
+</script>

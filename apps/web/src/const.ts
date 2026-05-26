@@ -137,3 +137,59 @@ export const CASOS = [
     ],
   },
 ] as const;
+
+export const ABOUT = {
+  photo: '/images/hero-placeholder.svg',
+  photoCaption: ['RL · San Fernando', String(new Date().getFullYear())],
+  qa: [
+    {
+      q: '¿Por qué te dedicás al derecho?',
+      aHtml:
+        'Porque me interesan las <em>historias</em> de las personas. Cada expediente es alguien tratando de resolver algo que lo desvela. Mi trabajo es traducir eso a un lenguaje que el sistema entienda, sin que pierda lo que tiene de humano.',
+    },
+    {
+      q: '¿Cómo describirías tu forma de trabajar?',
+      aHtml:
+        'Tranquila. Detallista. Honesta. Si un caso no conviene ir a juicio, te lo digo. Si conviene esperar, también. Trato de no inflar expectativas ni hacerme el que sabe más de lo que sé.',
+    },
+    {
+      q: '¿Qué buscás en la primera consulta?',
+      aHtml:
+        'Que te vayas con dos o tres cosas claras: qué se puede hacer, qué cuesta, qué tarda. Aunque después decidas no contratarme.',
+    },
+  ],
+  pull:
+    'No vendo certezas. Vendo claridad, criterio y la verdad sobre lo que se puede hacer.',
+  bio: [
+    { k: 'Formación', v: 'UBA — Abogacía', note: '2009 · 2014' },
+    { k: 'Especialización', v: 'Derecho de familia', note: 'USAL · posgrado, 2018' },
+    { k: 'Matrícula', v: 'CASI · T. IX F. 421', note: 'San Isidro, Buenos Aires' },
+  ],
+} as const;
+
+export const TESTIMONIOS = [
+  {
+    q: 'Rodrigo nos explicó la sucesión como si estuviéramos en la cocina. Hacía años que nadie nos hablaba en castellano. Es la primera vez que entendí qué firmaba.',
+    n: 'María Inés C.',
+    r: 'Cliente · Familia y sucesiones',
+    avatar: '/images/avatars/t1.svg',
+  },
+  {
+    q: 'Esperaba un abogado que me hiciera sentir un número. Me encontré con alguien que se acordaba de los detalles del caso entre llamada y llamada. Eso no se compra.',
+    n: 'Federico A.',
+    r: 'Cliente · Derecho laboral',
+    avatar: '/images/avatars/t3.svg',
+  },
+  {
+    q: 'Le consulté antes de firmar un contrato. Me lo trajo marcado a mano, con cinco cosas que no entendía. Me ahorró un problema serio. Y plata.',
+    n: 'Lucía V.',
+    r: 'Cliente · Civil y contratos',
+    avatar: '/images/avatars/t2.svg',
+  },
+  {
+    q: 'Lo que más valoro es que cuando me dijo que no me convenía ir a juicio, le creí. Y tenía razón. Hay abogados que te empujan al juzgado; él no.',
+    n: 'Hernán P.',
+    r: 'Cliente · Mediación',
+    avatar: '/images/avatars/t4.svg',
+  },
+] as const;
