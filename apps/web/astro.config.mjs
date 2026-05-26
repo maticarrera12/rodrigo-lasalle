@@ -14,7 +14,16 @@ export default defineConfig({
     react(),
     icon({
       include: {
-        mdi: ["arrow-top-right", "arrow-right"],
+        mdi: [
+          "arrow-top-right",
+          "arrow-right",
+          "account-heart-outline",
+          "file-document-outline",
+          "briefcase-outline",
+          "file-sign",
+          "home-outline",
+          "handshake-outline",
+        ],
       },
     }),
   ],

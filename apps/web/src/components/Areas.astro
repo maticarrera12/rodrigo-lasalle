@@ -1,0 +1,79 @@
+---
+import { Icon } from "astro-icon/components";
+import { AREAS } from "@/const";
+---
+
+<section id="especialidades" class="w-full pb-20 pt-28 lg:pb-28 lg:pt-32">
+	<div class="container border-t border-border pt-16 lg:pt-20">
+		<div
+			class="reveal mb-14 flex flex-col gap-8 lg:mb-16 lg:flex-row lg:items-end lg:justify-between lg:gap-16"
+			data-reveal
+		>
+			<div class="max-w-md">
+				<p class="text-xs font-medium uppercase tracking-[0.12em] text-calido-4">
+					— 01 / Áreas de trabajo
+				</p>
+				<h1 class="pt-4 text-[clamp(2rem,4vw,2.75rem)] leading-tight text-calido-1 font-serif-ebgaramond">
+					En qué <span class="text-calido-3 italic">te puedo</span> acompañar.
+				</h1>
+			</div>
+			<p class="max-w-md text-lg leading-relaxed text-calido-4">
+				Seis áreas que toco con frecuencia, explicadas como las explicaría en la primera consulta:
+				qué problema resuelven, a quién le sirven, cuándo conviene venir antes de que todo se complique.
+			</p>
+		</div>
+
+		<div class="divide-y divide-border border-y border-border">
+			{
+				AREAS.map((area, index) => (
+					<article
+						class="reveal group flex flex-col gap-4 py-8 lg:grid lg:grid-cols-[4rem_minmax(0,16rem)_1fr_auto] lg:items-center lg:gap-x-8 lg:py-10"
+						data-reveal
+						data-reveal-delay={index * 60}
+					>
+						<div class="flex items-start justify-between gap-4 lg:contents">
+							<p class="text-sm tabular-nums text-calido-4">/ {area.n}</p>
+							<div class="flex items-start gap-3 lg:col-start-2">
+								<Icon name={area.icon} class="mt-1 h-5 w-5 shrink-0 text-calido-3" aria-hidden="true" />
+								<h2 class="text-2xl leading-snug text-calido-1 font-serif-ebgaramond lg:text-[1.65rem]">
+									{area.t}
+								</h2>
+							</div>
+							<Icon
+								name="mdi:arrow-right"
+								class="h-5 w-5 shrink-0 text-calido-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-calido-3 lg:col-start-4"
+								aria-hidden="true"
+							/>
+						</div>
+
+						<p class="text-base leading-relaxed text-calido-4 lg:col-start-3 lg:row-start-1">
+							{area.d}
+						</p>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.reveal {
+		opacity: 0;
+		transform: translateY(1rem);
+		transition:
+			opacity 0.55s ease,
+			transform 0.55s ease;
+	}
+
+	.reveal.is-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	import { initReveal } from "@/scripts/reveal";
+
+	initReveal();
+	document.addEventListener("astro:page-load", initReveal);
+</script>

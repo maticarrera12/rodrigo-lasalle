@@ -1,0 +1,110 @@
+---
+import { CASOS } from "@/const";
+---
+
+<section id="casos-de-exito" class="w-full pb-20 pt-28 lg:pb-28 lg:pt-32">
+	<div class="container pt-16 lg:pt-20">
+		<div
+			class="reveal mb-14 grid gap-8 lg:mb-20 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16"
+			data-reveal
+		>
+			<div>
+				<p class="text-xs font-medium uppercase tracking-[0.12em] text-calido-4">
+					— 03 / Casos
+				</p>
+				<h1 class="pt-4 text-[clamp(2rem,4vw,2.75rem)] leading-tight text-calido-1 font-serif-ebgaramond">
+					Historias, contadas <span class="text-calido-3 italic">en orden</span>.
+				</h1>
+			</div>
+			<p class="text-lg leading-relaxed text-calido-4 lg:max-w-xl lg:pt-8">
+				Tres casos resueltos en los últimos dos años. Cambié nombres y datos identificatorios — el resto,
+				como pasó. Si querés saber más sobre alguno, escribime; los analizo con vos en la consulta.
+			</p>
+		</div>
+
+		<div class="flex flex-col">
+			{
+				CASOS.map((caso, index) => {
+					const reversed = index % 2 !== 0;
+					return (
+						<article
+							class:list={[
+								"grid gap-10 py-12 lg:items-start lg:gap-16 lg:py-14",
+								reversed
+									? "lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]"
+									: "lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]",
+							]}
+						>
+							<div
+								class:list={[
+									"reveal flex flex-col gap-5",
+									reversed && "lg:col-start-2",
+								]}
+								data-reveal
+								data-reveal-delay={index * 40}
+							>
+								<div class="flex flex-col gap-2">
+									<p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+										{caso.cat}
+									</p>
+									<p class="text-xs uppercase tracking-[0.12em] text-calido-4">
+										— Caso {String(index + 1).padStart(2, "0")} · {caso.yr}
+									</p>
+								</div>
+
+								<h2
+									class="text-[clamp(1.75rem,3vw,2.25rem)] leading-tight text-calido-1 font-serif-ebgaramond [&_em]:text-calido-3 [&_em]:italic"
+									set:html={caso.titleHtml}
+								/>
+
+								<p class="text-base leading-relaxed text-calido-4">{caso.lede}</p>
+							</div>
+
+							<div
+								class:list={[
+									"reveal divide-y divide-border border-y border-border",
+									reversed && "lg:col-start-1 lg:row-start-1",
+								]}
+								data-reveal
+								data-reveal-delay={120 + index * 40}
+							>
+								{
+									caso.rows.map(([label, value]) => (
+										<div class="grid gap-3 py-5 sm:grid-cols-[5.75rem_1fr] sm:gap-10 lg:py-6">
+											<p class="text-xs font-medium uppercase tracking-[0.12em] text-calido-4">
+												{label}
+											</p>
+											<p class="text-base leading-relaxed text-calido-1">{value}</p>
+										</div>
+									))
+								}
+							</div>
+						</article>
+					);
+				})
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.reveal {
+		opacity: 0;
+		transform: translateY(1rem);
+		transition:
+			opacity 0.55s ease,
+			transform 0.55s ease;
+	}
+
+	.reveal.is-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	import { initReveal } from "@/scripts/reveal";
+
+	initReveal();
+	document.addEventListener("astro:page-load", initReveal);
+</script>
