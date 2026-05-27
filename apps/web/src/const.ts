@@ -167,6 +167,12 @@ export const ABOUT = {
   ],
 } as const;
 
+export const CONTACTO_ITEMS = [
+  { key: "WhatsApp", value: "+54 9 11 4444 5555" },
+  { key: "Email",    value: "rodrigo@lasalle.legal" },
+  { key: "Estudio",  value: "Av. Pte. Perón 1240", sub: "San Fernando, Buenos Aires" },
+] as const;
+
 export const TESTIMONIOS = [
   {
     q: 'Rodrigo nos explicó la sucesión como si estuviéramos en la cocina. Hacía años que nadie nos hablaba en castellano. Es la primera vez que entendí qué firmaba.',

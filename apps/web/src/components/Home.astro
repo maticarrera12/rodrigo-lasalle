@@ -1,7 +1,7 @@
 ---
-import { Icon } from "astro-icon/components";
-import { CONSULTATION_URL, ESTABLISHED_YEAR, WHATSAPP_URL } from "@/const";
+import { ESTABLISHED_YEAR, WHATSAPP_URL } from "@/const";
 import HeroStats from "@/components/HeroStats.astro";
+import WhatsappButton from "@workspace/ui/components/astro/WhatsappButton.astro";
 ---
 
 <section class="w-full pt-28 pb-16 lg:pt-32 lg:pb-0">
@@ -29,7 +29,7 @@ import HeroStats from "@/components/HeroStats.astro";
 					Diez años acompañando casos con criterio y palabras que se entienden.
 				</p>
 				<div class="flex flex-col gap-5 pt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
-					<a
+					<!-- <a
 						href={CONSULTATION_URL}
 						class="group inline-flex w-fit items-center gap-2 rounded-full bg-calido-2 px-6 py-3 text-sm text-primary-foreground transition-colors hover:bg-calido-1"
 					>
@@ -38,17 +38,8 @@ import HeroStats from "@/components/HeroStats.astro";
 							name="mdi:arrow-right"
 							class="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
 						/>
-					</a>
-					<a
-						href={WHATSAPP_URL}
-						class="group inline-flex w-fit items-center gap-1.5 pb-0.5 text-sm font-light transition-all duration-100 hover:border-b hover:border-calido-3"
-					>
-						Escribir por WhatsApp
-						<Icon
-							name="mdi:arrow-top-right"
-							class="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5"
-						/>
-					</a>
+					</a> -->
+					<WhatsappButton href={WHATSAPP_URL} />
 				</div>
 			</div>
 

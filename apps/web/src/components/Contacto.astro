@@ -1,0 +1,125 @@
+---
+import { CONTACTO_ITEMS, WHATSAPP_URL } from "@/const";
+import WhatsappButton from "@workspace/ui/components/astro/WhatsappButton.astro";
+---
+
+<section id="contacto" class="w-full pb-24 lg:pb-32">
+  <div class="container border-t border-border pt-16 lg:pt-24">
+    <div
+      class="reveal grid gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-20"
+      data-reveal
+    >
+      <!-- Left: headline + CTA -->
+      <div>
+        <h2
+          class="text-[clamp(3rem,7vw,5.5rem)] leading-[1.0] text-calido-1 font-serif-ebgaramond"
+        >
+          Hablemos.<br />
+          <em class="text-calido-3">Sin compromiso.</em>
+        </h2>
+
+        <p
+          class="reveal mt-8 max-w-sm text-base leading-relaxed text-calido-4"
+          data-reveal
+          data-reveal-delay="80"
+        >
+          La primera consulta es para entender qué te pasa y ver si te puedo
+          ayudar. Si no es lo mío, te oriento hacia alguien que sí. Suele durar
+          45 minutos y no se paga.
+        </p>
+
+        <div
+          class="reveal mt-9"
+          data-reveal
+          data-reveal-delay="160"
+        >
+         <WhatsappButton href={WHATSAPP_URL}/>
+        </div>
+      </div>
+
+      <!-- Right: contact list -->
+      <div
+        class="reveal contact-list divide-y divide-border"
+        data-reveal
+        data-reveal-delay="120"
+      >
+        {
+          CONTACTO_ITEMS.map((item) => (
+            <a href="#contacto" class="contact-row block py-5 group">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex items-baseline gap-6 min-w-0">
+                  <span class="w-20 shrink-0 text-[10px] group-hover:translate-x-1 transition-all duration-200 font-medium uppercase tracking-[0.14em] text-calido-4">
+                    {item.key}
+                  </span>
+                  <span class="value-text group-hover:translate-x-1 transition-all duration-200 text-base font-serif-ebgaramond text-calido-1 lg:text-lg">
+                    {item.value}
+                    {item.sub && (
+                      <span class="block text-sm font-sans text-calido-4 mt-0.5 not-italic">
+                        {item.sub}
+                      </span>
+                    )}
+                  </span>
+                </div>
+                <svg
+                  class="arrow-icon shrink-0 text-calido-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 17L17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s ease;
+  }
+
+  .reveal.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .contact-row {
+    text-decoration: none;
+  }
+
+  .arrow-icon {
+    transition: transform 0.2s ease;
+    overflow: visible;
+  }
+
+  .contact-row:hover .arrow-icon {
+    transform: translate(3px, -3px);
+  }
+
+  .contact-row:hover .value-text {
+    color: var(--calido-3);
+  }
+</style>
+
+<script>
+  import { initReveal } from "@/scripts/reveal";
+
+  initReveal();
+  document.addEventListener("astro:page-load", initReveal);
+</script>

@@ -1,5 +1,6 @@
 ---
 import Nav from "@/components/Nav.astro"
+import Footer from "@/components/Footer.astro"
 import "@workspace/ui/globals.css"
 import { getThemeInitInlineScript } from "@workspace/ui/lib/theme-init-script"
 ---
@@ -15,6 +16,7 @@ import { getThemeInitInlineScript } from "@workspace/ui/lib/theme-init-script"
   <body>
     <Nav />
     <slot />
+    <Footer />
     <script>
 
 
