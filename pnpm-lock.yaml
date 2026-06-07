@@ -102,6 +102,9 @@ importers:
       '@fontsource/libre-baskerville':
         specifier: ^5.2.10
         version: 5.2.10
+      '@iconify-json/mdi':
+        specifier: ^1.2.3
+        version: 1.2.3
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1

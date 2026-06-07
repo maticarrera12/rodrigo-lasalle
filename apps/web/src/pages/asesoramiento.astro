@@ -1,0 +1,219 @@
+---
+import "@workspace/ui/globals.css";
+import Main from "@/layouts/main.astro";
+import { ABONOS } from "@/const";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Asesoramiento | Rodrigo Lasalle</title>
+  </head>
+  <body>
+    <Main>
+      <section class="w-full pt-28 pb-8 lg:pt-32 lg:pb-16">
+        <div class="container">
+          <div class="reveal mb-14 flex flex-col gap-8 lg:mb-16 lg:flex-row lg:items-end lg:justify-between lg:gap-16" data-reveal>
+            <div class="max-w-md">
+              <p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+                — 05 / Asesoramiento
+              </p>
+              <h1 class="pt-4 text-[clamp(3rem,4vw,2.75rem)] leading-tight text-calido-1 font-serif-ebgaramond">
+                Asesoramiento legal <span class="text-calido-3 italic">permanente</span>.
+              </h1>
+            </div>
+            <p class="max-w-md text-lg leading-relaxed text-calido-4">
+              Planes diseñados para inmobiliarias, consorcios y empresas que necesitan respaldo jurídico continuo.
+            </p>
+          </div>
+
+          <!-- Tab buttons -->
+          <div
+            class="reveal relative mb-0 flex gap-2 border-b border-border"
+            data-reveal
+            data-reveal-delay={80}
+            data-tab-list
+            role="tablist"
+            aria-label="Planes de asesoramiento"
+          >
+            {
+              ABONOS.map((abono, index) => (
+                <button
+                  type="button"
+                  role="tab"
+                  data-tab-btn={abono.id}
+                  aria-selected={index === 0 ? "true" : "false"}
+                  aria-controls={`panel-${abono.id}`}
+                  class:list={[
+                    "px-5 py-3 text-sm font-medium transition-colors",
+                    index === 0 ? "is-active text-calido-1" : "text-calido-4 hover:text-calido-1",
+                  ]}
+                >
+                  {abono.label}
+                </button>
+              ))
+            }
+            <span data-tab-indicator class="pointer-events-none absolute bottom-0 left-0 h-0.5 bg-calido-3" aria-hidden="true"></span>
+          </div>
+
+          <!-- Tab panels -->
+          {
+            ABONOS.map((abono, index) => (
+              <div
+                id={`panel-${abono.id}`}
+                role="tabpanel"
+                data-tab-panel={abono.id}
+                data-active={index === 0 ? "true" : undefined}
+                hidden={index !== 0}
+                class="reveal pt-10"
+                data-reveal
+                data-reveal-delay={120}
+              >
+                <p class="mb-10 max-w-3xl text-base leading-relaxed text-calido-4 lg:text-lg">
+                  {abono.bajada}
+                </p>
+
+                <!-- Incluye — two columns on desktop -->
+                <div class="mb-12">
+                  <p class="mb-6 text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+                    Qué incluye
+                  </p>
+                  <div class="grid gap-0 lg:grid-cols-2 divide-y divide-border border-y border-border lg:divide-y-0">
+                    {abono.incluye.map((grupo, i) => (
+                      <div
+                        class:list={[
+                          "py-5 lg:px-6",
+                          i < abono.incluye.length - 2 ? "lg:border-b border-border" : "",
+                          i === 0 || i === 1 ? "lg:border-t border-border" : "",
+                        ]}
+                      >
+                        <p class="mb-3 text-sm font-medium text-calido-1">{grupo.titulo}</p>
+                        <ul class="space-y-1">
+                          {grupo.items.map((item) => (
+                            <li class="flex items-start gap-2 text-sm leading-relaxed text-calido-4">
+                              <span class="mt-0.5 shrink-0 text-calido-3" aria-hidden="true">·</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Beneficios + cierre -->
+                <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+                  <ul class="space-y-3">
+                    <p class="mb-6 text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+                      Beneficios
+                    </p>
+                    {abono.beneficios.map((b) => (
+                      <li class="flex items-start gap-3">
+                        <span class="mt-0.5 shrink-0 text-calido-3" aria-hidden="true">✓</span>
+                        <span class="text-base leading-relaxed text-calido-1">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <blockquote class="self-start max-w-md border-l-2 border-calido-3 pl-5">
+                    <p class="text-base leading-relaxed text-calido-1 font-serif-ebgaramond italic">
+                      "{abono.cierre}"
+                    </p>
+                  </blockquote>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </Main>
+  </body>
+</html>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s ease;
+  }
+
+  .reveal.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script is:inline>
+  function initTabs() {
+    var tabList = document.querySelector("[data-tab-list]");
+    if (!tabList) return;
+
+    var indicator = tabList.querySelector("[data-tab-indicator]");
+    var buttons = tabList.querySelectorAll("[data-tab-btn]");
+    if (!indicator || !buttons.length) return;
+
+    indicator.style.transition = "transform 0.35s ease, width 0.35s ease";
+    indicator.style.willChange = "transform, width";
+
+    function moveIndicator(btn) {
+      var listRect = tabList.getBoundingClientRect();
+      var btnRect = btn.getBoundingClientRect();
+      indicator.style.width = btnRect.width + "px";
+      indicator.style.transform = "translateX(" + (btnRect.left - listRect.left) + "px)";
+    }
+
+    function setActiveTab(btn) {
+      var target = btn.getAttribute("data-tab-btn");
+
+      document.querySelectorAll("[data-tab-panel]").forEach(function (panel) {
+        panel.hidden = true;
+        panel.removeAttribute("data-active");
+      });
+
+      buttons.forEach(function (b) {
+        b.setAttribute("aria-selected", "false");
+        b.classList.remove("is-active", "text-calido-1");
+        b.classList.add("text-calido-4");
+      });
+
+      var activePanel = document.querySelector('[data-tab-panel="' + target + '"]');
+      if (activePanel) {
+        activePanel.hidden = false;
+        activePanel.setAttribute("data-active", "true");
+      }
+
+      btn.setAttribute("aria-selected", "true");
+      btn.classList.add("is-active", "text-calido-1");
+      btn.classList.remove("text-calido-4");
+
+      moveIndicator(btn);
+    }
+
+    var initial =
+      tabList.querySelector('[aria-selected="true"]') || buttons[0];
+    moveIndicator(initial);
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setActiveTab(btn);
+      });
+    });
+
+    window.addEventListener("resize", function () {
+      var current = tabList.querySelector('[aria-selected="true"]');
+      if (current) moveIndicator(current);
+    });
+  }
+
+  document.addEventListener("astro:page-load", initTabs);
+  initTabs();
+</script>
+
+<script>
+  import { initReveal } from "@/scripts/reveal";
+  initReveal();
+  document.addEventListener("astro:page-load", initReveal);
+</script>

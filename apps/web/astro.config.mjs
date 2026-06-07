@@ -23,6 +23,8 @@ export default defineConfig({
           "file-sign",
           "home-outline",
           "handshake-outline",
+          "alert-circle-outline",
+          "cash-multiple",
         ],
       },
     }),

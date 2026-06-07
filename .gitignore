@@ -12,7 +12,6 @@ node_modules
 
 # Testing
 coverage
-
 # Turbo
 .turbo
 
@@ -31,3 +30,5 @@ npm-debug.log*
 # Misc
 .DS_Store
 *.pem
+copy.md
+

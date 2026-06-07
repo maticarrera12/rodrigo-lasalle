@@ -1,26 +1,26 @@
 ---
-import { ABOUT } from "@/const";
+import { ABOUT, WHY_CHOOSE_US } from "@/const";
 
 const qaDelays = [80, 160, 200];
 ---
 
-<section id="conoceme" class="w-full py-8 lg:py-16">
-	<div class="container pt-16 lg:pt-24">
+<section id="conoceme" class="w-full pt-28 pb-8 lg:pt-32 lg:pb-16">
+	<div class="container">
 		<div
 			class="reveal mb-16 grid gap-8 lg:mb-24 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-16 xl:gap-20"
 			data-reveal
 		>
 			<div>
 				<p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
-					— 03 / Sobre mí
+					— 03 / Sobre nosotros
 				</p>
 				<h1 class="pt-5 text-[clamp(2.25rem,4.5vw,3rem)] leading-[1.08] text-calido-1 font-serif-ebgaramond">
 					Una <span class="text-calido-3 italic">conversación</span>, antes que un expediente.
 				</h1>
 			</div>
 			<p class="max-w-md text-base leading-relaxed text-calido-4 lg:pt-16 lg:text-lg">
-				Soy abogado desde 2015. Trabajo en San Fernando, donde crecí. Lo que sigue es la versión corta
-				de cómo pienso el oficio.
+				Rodrigo y Germán Lasalle, abogados con amplia trayectoria en el ámbito privado,
+				el Poder Judicial y la Administración Pública.
 			</p>
 		</div>
 
@@ -96,6 +96,32 @@ const qaDelays = [80, 160, 200];
 					}
 				</div>
 			</div>
+		</div>
+
+		<div
+			class="reveal mt-20 border-t border-border pt-16 lg:mt-24 lg:pt-20"
+			data-reveal
+			data-reveal-delay={300}
+		>
+			<p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+				— ¿Por qué elegirnos?
+			</p>
+			<h2 class="pt-4 pb-10 text-[clamp(2rem,3.5vw,2.5rem)] leading-tight text-calido-1 font-serif-ebgaramond">
+				Razones para <span class="text-calido-3 italic">confiar</span> en nosotros.
+			</h2>
+			<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					WHY_CHOOSE_US.map((item) => (
+						<li class="flex items-start gap-3">
+							<span class="mt-0.5 shrink-0 text-calido-3" aria-hidden="true">✓</span>
+							<span class="text-base leading-relaxed text-calido-1">{item}</span>
+						</li>
+					))
+				}
+			</ul>
+			<p class="mt-10 max-w-xl text-base leading-relaxed text-calido-4 italic">
+				Su problema legal merece una solución profesional. Estamos para ayudarlo.
+			</p>
 		</div>
 	</div>
 </section>

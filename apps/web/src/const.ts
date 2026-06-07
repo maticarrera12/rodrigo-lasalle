@@ -28,9 +28,10 @@ export const SOCIAL_LINKS = {
 };
 
 export const NAV_LINKS = [
-  { href: '/conoceme', label: 'Conoceme' },
+  { href: '/conocenos', label: 'Conocenos' },
   { href: '/especialidades', label: 'Especialidades' },
-  { href: '/casos-de-exito', label: 'Casos de exito' },
+  // { href: '/casos-de-exito', label: 'Casos de exito' },
+  { href: '/asesoramiento', label: 'Asesoramiento' },
 ];
 
 export const ESTABLISHED_YEAR = 2020;
@@ -39,14 +40,14 @@ export const CONSULTATION_URL = '/#contacto';
 
 export const HERO_STATS = [
   {
-    label: 'Trayectoria',
-    highlight: '10 años',
-    description: 'desde 2015, ejercicio independiente',
+    label: 'Experiencia',
+    highlight: '+25 años',
+    description: 'trayectoria profesional',
   },
   {
-    label: 'Casos atendidos',
-    highlight: '+ 320',
-    description: 'familia, laboral, sucesiones',
+    label: 'Ámbito',
+    highlight: 'Privado',
+    description: 'Poder Judicial y Adm. Pública',
   },
   {
     label: 'Matrícula',
@@ -58,46 +59,259 @@ export const HERO_STATS = [
     highlight: 'Presencial',
     description: 'y por videollamada · Argentina',
   },
-] as const;
+];
 
-export const AREAS = [
+export interface Area {
+  n: string;
+  t: string;
+  d: string;
+  icon: string;
+  slug: string;
+  descripcionLarga: string;
+  servicios: string[];
+}
+
+export const AREAS: Area[] = [
   {
-    n: '01',
-    t: 'Derecho de familia',
-    d: 'Divorcios, tenencia, cuota alimentaria, régimen de comunicación, uniones convivenciales. Acompañamiento sereno en momentos que rara vez lo son.',
-    icon: 'mdi:account-heart-outline',
+    n: "01",
+    t: "Derecho Inmobiliario",
+    d: "Asesoramiento integral en operaciones inmobiliarias, conflictos de propiedad y regularización dominial.",
+    icon: "mdi:home-outline",
+    slug: "derecho-inmobiliario",
+    descripcionLarga: "Asesoramos en la compra, venta, alquiler y regularización de inmuebles, garantizando operaciones seguras y minimizando riesgos legales.",
+    servicios: [
+      "Boletos de compraventa",
+      "Estudios de títulos",
+      "Contratos de locación",
+      "Cobro de alquileres",
+      "Desalojos",
+      "Reivindicaciones",
+      "Usucapiones",
+      "Regularización dominial",
+      "Cesiones de derechos",
+      "Fideicomisos",
+      "Due diligence inmobiliaria",
+    ],
   },
   {
-    n: '02',
-    t: 'Sucesiones y herencias',
-    d: 'Cuando alguien fallece y hay que ordenar lo que queda: testamentos, sucesiones ab intestato, particiones. Trato humano para una etapa difícil.',
-    icon: 'mdi:file-document-outline',
+    n: "02",
+    t: "Derecho de Familia",
+    d: "Acompañamos a nuestros clientes en los momentos más importantes de su vida personal y familiar.",
+    icon: "mdi:account-heart-outline",
+    slug: "derecho-de-familia",
+    descripcionLarga: "Acompañamos a nuestros clientes en los momentos más importantes de su vida personal y familiar, brindando soluciones jurídicas sólidas y humanas.",
+    servicios: [
+      "Divorcios",
+      "Liquidación de bienes",
+      "Compensaciones económicas",
+      "Cuotas alimentarias",
+      "Régimen de comunicación",
+      "Cuidado personal de hijos",
+      "Adopciones",
+      "Filiación",
+      "Impugnación de paternidad",
+      "Violencia familiar",
+      "Uniones convivenciales",
+      "Restricciones a la capacidad y sistemas de apoyo",
+    ],
   },
   {
-    n: '03',
-    t: 'Derecho laboral',
-    d: 'Despidos, indemnizaciones, accidentes de trabajo, registración laboral. Defensa de trabajadores y asesoramiento a pequeñas empresas.',
-    icon: 'mdi:briefcase-outline',
+    n: "03",
+    t: "Sucesiones y Planificación Patrimonial",
+    d: "Asesoramiento integral en procesos sucesorios y transmisión del patrimonio familiar.",
+    icon: "mdi:file-document-outline",
+    slug: "sucesiones-y-planificacion-patrimonial",
+    descripcionLarga: "Brindamos asesoramiento integral en procesos sucesorios, acompañando a nuestros clientes desde el inicio del trámite hasta la inscripción definitiva de los bienes a nombre de los herederos. Intervenimos en sucesiones testamentarias e intestadas, declaratorias de herederos, inscripción de inmuebles, automotores, acciones y demás bienes registrables.",
+    servicios: [
+      "Declaratoria de herederos",
+      "Sucesiones con y sin testamento",
+      "Inscripción de inmuebles y automotores",
+      "Cesión de derechos hereditarios",
+      "Partición de bienes",
+      "Acuerdos entre herederos",
+      "Planificación sucesoria y patrimonial",
+    ],
   },
   {
-    n: '04',
-    t: 'Derecho civil y contratos',
-    d: 'Contratos, daños y perjuicios, locaciones, defensa del consumidor. Revisar antes, no lamentar después. Letra chica explicada en lenguaje claro.',
-    icon: 'mdi:file-sign',
+    n: "04",
+    t: "Daños y Perjuicios",
+    d: "Representamos a personas que han sufrido daños personales o patrimoniales y buscan una reparación integral.",
+    icon: "mdi:file-sign",
+    slug: "danos-y-perjuicios",
+    descripcionLarga: "Defendemos los derechos de quienes han sufrido daños personales o patrimoniales como consecuencia de hechos ilícitos, incumplimientos contractuales o accidentes. Trabajamos para obtener una reparación económica integral que contemple todos los perjuicios sufridos.",
+    servicios: [
+      "Accidentes de tránsito",
+      "Mala praxis profesional",
+      "Responsabilidad médica",
+      "Daños ocasionados por terceros",
+      "Accidentes en establecimientos comerciales",
+      "Incumplimientos contractuales",
+      "Daño moral y psicológico",
+    ],
   },
   {
-    n: '05',
-    t: 'Derecho inmobiliario',
-    d: 'Compraventas, alquileres, escrituras, conflictos de propiedad. Asesoramiento previo a firmar y representación si las cosas se complican.',
-    icon: 'mdi:home-outline',
+    n: "05",
+    t: "Derecho Laboral",
+    d: "Brindamos asesoramiento tanto a trabajadores como a empleadores.",
+    icon: "mdi:briefcase-outline",
+    slug: "derecho-laboral",
+    descripcionLarga: "Representamos tanto a trabajadores como a empleadores en conflictos laborales, brindando asesoramiento preventivo y litigioso. Buscamos proteger los derechos de nuestros clientes mediante estrategias jurídicas sólidas y eficientes.",
+    servicios: [
+      "Despidos con y sin causa",
+      "Indemnizaciones laborales",
+      "Trabajo no registrado",
+      "Diferencias salariales",
+      "Accidentes de trabajo",
+      "Acoso laboral",
+      "Negociaciones y acuerdos",
+    ],
   },
   {
-    n: '06',
-    t: 'Mediación y acuerdos',
-    d: 'Llegar a un acuerdo bueno suele ser mejor que ganar un juicio largo. Mediación prejudicial, negociación y resolución de conflictos.',
-    icon: 'mdi:handshake-outline',
+    n: "06",
+    t: "Mediación y Acuerdos",
+    d: "Facilitamos acuerdos entre las partes en conflicto mediante la mediación prejudicial y la negociación directa.",
+    icon: "mdi:handshake-outline",
+    slug: "mediacion-y-acuerdos",
+    descripcionLarga: "Facilitamos acuerdos entre las partes en conflicto mediante la mediación prejudicial y la negociación directa, evitando procesos judiciales largos y costosos.",
+    servicios: [
+      "Mediación prejudicial obligatoria",
+      "Negociación y resolución de conflictos",
+      "Acuerdos extrajudiciales",
+      "Convenios de pago",
+      "Mediación familiar",
+      "Mediación en conflictos vecinales y comerciales",
+    ],
   },
-] as const;
+  {
+    n: "07",
+    t: "Amparos y Procesos Urgentes",
+    d: "Intervenimos en situaciones que requieren una respuesta judicial inmediata.",
+    icon: "mdi:alert-circle-outline",
+    slug: "amparos",
+    descripcionLarga: "Cuando un derecho fundamental se encuentra amenazado o vulnerado, actuamos de manera inmediata mediante acciones de amparo para obtener soluciones rápidas y efectivas. Nuestra experiencia nos permite intervenir con celeridad en situaciones que requieren una respuesta judicial urgente.",
+    servicios: [
+      "Amparos de salud",
+      "Cobertura médica",
+      "Medicamentos de alto costo",
+      "Discapacidad",
+      "Educación",
+      "Derechos constitucionales",
+      "Actuaciones contra organismos públicos",
+    ],
+  },
+  {
+    n: "08",
+    t: "Cobro de Deudas y Ejecuciones",
+    d: "Desarrollamos estrategias efectivas para la recuperación de créditos.",
+    icon: "mdi:cash-multiple",
+    slug: "cobro-de-deudas",
+    descripcionLarga: "Asistimos a particulares, comerciantes y empresas en la recuperación efectiva de créditos impagos. Implementamos estrategias preventivas y de cobranza que permiten maximizar las posibilidades de recupero, procurando soluciones rápidas y eficientes.",
+    servicios: [
+      "Intimaciones de pago",
+      "Cartas documento",
+      "Ejecución de pagarés y cheques",
+      "Cobro de facturas impagas",
+      "Reconocimientos de deuda",
+      "Acuerdos de refinanciación",
+      "Ejecuciones judiciales",
+    ],
+  },
+];
+
+export const WHY_CHOOSE_US: string[] = [
+  "Atención personalizada",
+  "Más de 25 años de experiencia profesional",
+  "Estrategias jurídicas diseñadas para cada caso",
+  "Comunicación clara y permanente",
+  "Defensa firme de los intereses de nuestros clientes",
+  "Soluciones rápidas, eficientes y orientadas a resultados",
+];
+
+export interface AbonoServicio {
+  titulo: string;
+  items: string[];
+}
+
+export interface Abono {
+  id: string;
+  label: string;
+  bajada: string;
+  incluye: AbonoServicio[];
+  beneficios: string[];
+  cierre: string;
+}
+
+export const ABONOS: Abono[] = [
+  {
+    id: "inmobiliarias",
+    label: "Inmobiliarias",
+    bajada: "El respaldo legal que su inmobiliaria necesita todos los días. Nos convertimos en el departamento jurídico externo de su inmobiliaria, acompañando cada operación desde la reserva hasta la escrituración, y cada locación desde la firma del contrato hasta su finalización.",
+    incluye: [
+      { titulo: "Asesoramiento permanente", items: ["Consultas legales ilimitadas sobre cuestiones inmobiliarias, contractuales, sucesorias, societarias y registrales."] },
+      { titulo: "Revisión de documentación", items: ["Análisis de títulos de propiedad, informes registrales, autorizaciones de venta, poderes, sucesiones, cesiones de derechos, fideicomisos y demás documentación necesaria."] },
+      { titulo: "Contratos y documentación", items: ["Reservas de compra", "Boletos de compraventa", "Contratos de locación", "Convenios de desocupación", "Cesiones de derechos", "Autorizaciones de venta", "Reconocimientos de deuda", "Acuerdos extrajudiciales"] },
+      { titulo: "Locaciones y alquileres", items: ["Reclamo de alquileres impagos", "Intimaciones", "Cobro de expensas", "Ejecución de garantías", "Recuperación de inmuebles", "Desalojos"] },
+      { titulo: "Operaciones complejas", items: ["Sucesiones", "Usucapiones", "Bienes gananciales", "Divorcios", "Fideicomisos", "Propiedades con conflictos de dominio", "Inmuebles con medidas cautelares o embargos"] },
+      { titulo: "Representación judicial", items: ["Desalojos", "Cobro de alquileres", "Ejecuciones", "Reivindicaciones", "Usucapiones", "Conflictos contractuales", "Daños vinculados con operaciones inmobiliarias"] },
+    ],
+    beneficios: [
+      "Mayor seguridad jurídica en cada operación",
+      "Reducción de riesgos y contingencias legales",
+      "Respuesta rápida ante consultas de corredores y clientes",
+      "Mejora de la calidad profesional del servicio brindado",
+      "Incremento de la confianza de compradores, vendedores, locadores e inquilinos",
+      "Acompañamiento permanente por profesionales especializados en derecho inmobiliario",
+    ],
+    cierre: "Una inmobiliaria vende propiedades. Nosotros protegemos cada operación.",
+  },
+  {
+    id: "consorcios",
+    label: "Consorcios",
+    bajada: "Asesoramiento legal permanente para administradores y consorcios. Actuamos como el departamento legal externo del consorcio, acompañando a la administración en la toma de decisiones y en la defensa de los intereses de la comunidad.",
+    incluye: [
+      { titulo: "Cobro de expensas", items: ["Intimaciones de pago", "Acuerdos extrajudiciales", "Ejecución judicial de expensas", "Seguimiento integral de la cobranza"] },
+      { titulo: "Propiedad horizontal", items: ["Interpretación y aplicación del Reglamento de Copropiedad", "Análisis de derechos y obligaciones de propietarios e inquilinos", "Conflictos entre vecinos", "Uso de espacios comunes"] },
+      { titulo: "Asistencia a la administración", items: ["Consultas jurídicas permanentes", "Dictámenes legales", "Redacción de comunicaciones e intimaciones", "Asesoramiento preventivo"] },
+      { titulo: "Asambleas", items: ["Asesoramiento previo", "Redacción de actas", "Impugnación o defensa de asambleas", "Análisis de validez de decisiones consorciales"] },
+      { titulo: "Contratos", items: ["Contratación de proveedores", "Empresas de mantenimiento", "Seguridad", "Limpieza", "Obras y refacciones"] },
+      { titulo: "Reclamos y litigios", items: ["Daños ocasionados por filtraciones y humedades", "Responsabilidad del consorcio", "Reclamos de propietarios", "Defensa judicial del consorcio"] },
+    ],
+    beneficios: [
+      "Respuesta inmediata ante consultas legales",
+      "Prevención de conflictos y contingencias",
+      "Recuperación más eficiente de expensas adeudadas",
+      "Mayor seguridad jurídica en la administración",
+      "Respaldo profesional permanente",
+      "Reducción de costos derivados de litigios evitables",
+    ],
+    cierre: "Nuestro objetivo es brindar tranquilidad a administradores y propietarios, permitiendo una gestión eficiente, transparente y jurídicamente segura del consorcio.",
+  },
+  {
+    id: "empresas",
+    label: "Empresas y PyMES",
+    bajada: "Su departamento legal externo, siempre disponible. Nos convertimos en un aliado estratégico para prevenir conflictos y acompañar el crecimiento de cada organización.",
+    incluye: [
+      { titulo: "Asesoramiento legal permanente", items: ["Consultas sobre cuestiones comerciales, laborales, societarias, contractuales e inmobiliarias", "Respuestas rápidas y personalizadas", "Seguimiento continuo de situaciones jurídicas relevantes"] },
+      { titulo: "Derecho laboral", items: ["Contratación de personal", "Auditoría de relaciones laborales", "Prevención de contingencias laborales", "Sanciones disciplinarias", "Intimaciones", "Desvinculaciones", "Negociación de acuerdos", "Defensa ante reclamos laborales"] },
+      { titulo: "Contratos y documentación comercial", items: ["Redacción y revisión de contratos", "Contratos de prestación de servicios", "Contratos de distribución y representación", "Acuerdos de confidencialidad", "Condiciones de contratación y documentación interna"] },
+      { titulo: "Cobro de créditos y deudas", items: ["Reclamo de facturas impagas", "Intimaciones de pago", "Acuerdos de refinanciación", "Ejecución de cheques, pagarés y títulos ejecutivos", "Recuperación judicial y extrajudicial de créditos"] },
+      { titulo: "Asesoramiento societario", items: ["Constitución de sociedades", "Reformas estatutarias", "Transferencia de participaciones", "Conflictos entre socios", "Actas societarias", "Asistencia en reuniones y asambleas"] },
+      { titulo: "Defensa del consumidor", items: ["Asesoramiento preventivo", "Contestación de reclamos", "Actuación ante organismos administrativos", "Estrategias de reducción de contingencias"] },
+      { titulo: "Asesoramiento inmobiliario empresarial", items: ["Contratos de locación comercial", "Compra y venta de inmuebles", "Garantías", "Negociación contractual", "Conflictos vinculados con establecimientos comerciales"] },
+      { titulo: "Representación judicial", items: ["Cobro de deudas", "Ejecuciones", "Conflictos contractuales", "Reclamos laborales", "Daños y perjuicios", "Litigios comerciales"] },
+    ],
+    beneficios: [
+      "Respaldo legal permanente",
+      "Prevención de conflictos antes de que se transformen en juicios",
+      "Reducción de riesgos y contingencias",
+      "Ahorro de tiempo y costos operativos",
+      "Acceso directo a profesionales con experiencia",
+      "Mayor seguridad en la toma de decisiones",
+      "Atención personalizada y seguimiento continuo",
+    ],
+    cierre: "Mientras usted se ocupa de hacer crecer su negocio, nosotros nos ocupamos de protegerlo.",
+  },
+];
 
 export const CASOS = [
   {
@@ -140,32 +354,32 @@ export const CASOS = [
 
 export const ABOUT = {
   photo: '/images/hero-placeholder.svg',
-  photoCaption: ['RL · San Fernando', String(new Date().getFullYear())],
+  photoCaption: ['Estudio Lasalle · San Fernando', String(new Date().getFullYear())],
   qa: [
     {
-      q: '¿Por qué te dedicás al derecho?',
+      q: '¿Quiénes somos?',
       aHtml:
-        'Porque me interesan las <em>historias</em> de las personas. Cada expediente es alguien tratando de resolver algo que lo desvela. Mi trabajo es traducir eso a un lenguaje que el sistema entienda, sin que pierda lo que tiene de humano.',
+        'Somos un estudio jurídico integrado por los abogados <em>Rodrigo Lasalle</em> y <em>Germán Lasalle</em>, profesionales con amplia trayectoria en el ejercicio de la abogacía, tanto en el ámbito privado como en el Poder Judicial y la Administración Pública.',
     },
     {
-      q: '¿Cómo describirías tu forma de trabajar?',
+      q: 'Nuestra forma de trabajar',
       aHtml:
-        'Tranquila. Detallista. Honesta. Si un caso no conviene ir a juicio, te lo digo. Si conviene esperar, también. Trato de no inflar expectativas ni hacerme el que sabe más de lo que sé.',
+        'Creemos que cada situación legal requiere una <em>solución personalizada</em>. Por ello brindamos un asesoramiento cercano, claro y profesional, acompañando a nuestros clientes en cada etapa del proceso y manteniéndolos informados de manera permanente.',
     },
     {
-      q: '¿Qué buscás en la primera consulta?',
+      q: '¿A quiénes ayudamos?',
       aHtml:
-        'Que te vayas con dos o tres cosas claras: qué se puede hacer, qué cuesta, qué tarda. Aunque después decidas no contratarme.',
+        'Trabajamos tanto para <em>personas y familias</em> como para empresas, comercios, desarrolladores inmobiliarios, consorcios e instituciones.',
     },
   ],
   pull:
-    'No vendo certezas. Vendo claridad, criterio y la verdad sobre lo que se puede hacer.',
+    'Seriedad profesional, atención personalizada, transparencia en el trato y búsqueda constante de resultados concretos.',
   bio: [
-    { k: 'Formación', v: 'UBA — Abogacía', note: '2009 · 2014' },
-    { k: 'Especialización', v: 'Derecho de familia', note: 'USAL · posgrado, 2018' },
-    { k: 'Matrícula', v: 'CASI · T. IX F. 421', note: 'San Isidro, Buenos Aires' },
+    { k: 'Ámbito', v: 'Privado · Poder Judicial', note: 'Administración Pública' },
+    { k: 'Matrícula', v: 'CASI · San Isidro', note: 'Buenos Aires' },
+    { k: 'Clientes', v: 'Personas, familias y empresas', note: 'consorcios e inmobiliarias' },
   ],
-} as const;
+};
 
 export const CONTACTO_ITEMS = [
   { key: "WhatsApp", value: "+54 9 11 4444 5555" },
