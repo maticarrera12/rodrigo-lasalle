@@ -17,45 +17,96 @@ import { TESTIMONIOS } from "@/const";
 				</h2>
 			</div>
 			<p class="max-w-md text-base leading-relaxed text-calido-4 lg:pt-5 lg:text-lg">
-				Cuatro testimonios reales. Quien quiera, puede pedirme referencias concretas: tengo varios clientes
+				Testimonios reales de clientes en sucesiones, derecho de familia, conflictos inmobiliarios,
+				empresas y más. Quien quiera, puede pedirme referencias concretas: tengo varios clientes
 				dispuestos a hablar por teléfono con quien esté evaluando contratarme.
 			</p>
 		</div>
 
-		<div class="lg:grid lg:grid-cols-2">
-			{
-				TESTIMONIOS.map((testimonio, index) => (
-					<article
-						class="reveal p-8 lg:p-10"
-						data-reveal
-						data-reveal-delay={index * 80}
-					>
-							<p class="text-[clamp(1.25rem,2.15vw,1.875rem)] leading-[1.55] text-calido-1 font-serif-ebgaramond">
-								<span class="text-calido-3" aria-hidden="true">“</span>
-								{testimonio.q}
-								<span class="text-calido-3" aria-hidden="true">”</span>
-							</p>
+		<div
+			data-testimonials-slider
+			class="reveal relative flex w-full flex-col"
+			data-reveal
+		>
+			<div class="relative isolate min-h-0 w-full">
+				<div
+					data-slider-track
+					class="no-scrollbar flex w-full gap-6 overflow-x-auto pb-2 md:gap-8"
+					tabindex="0"
+				>
+					{
+						TESTIMONIOS.map((testimonio) => (
+							<article
+								data-testimonial-card
+								class="group relative flex w-[min(100%,21rem)] shrink-0 flex-col rounded-lg border border-border bg-card/40 p-8 transition-colors duration-500 hover:border-calido-3/40 sm:w-[24rem] lg:w-[26rem]"
+							>
+								<p class="text-[clamp(1.05rem,1.4vw,1.3rem)] leading-[1.55] text-calido-1 font-serif-ebgaramond">
+									<span class="text-calido-3" aria-hidden="true">
+										“
+									</span>
+									{testimonio.q}
+									<span class="text-calido-3" aria-hidden="true">
+										”
+									</span>
+								</p>
 
-							<div class="mt-8 flex items-center gap-4 lg:mt-10">
-								<img
-									src={testimonio.avatar}
-									alt=""
-									width="56"
-									height="56"
-									class="h-14 w-14 shrink-0 rounded-full object-cover"
-									loading="lazy"
-									decoding="async"
-								/>
-								<div class="min-w-0">
-									<p class="text-base text-calido-1">{testimonio.n}</p>
-									<p class="pt-1 text-xs uppercase tracking-[0.12em] text-calido-4">
-										{testimonio.r}
-									</p>
+								<div class="mt-auto flex items-center gap-4 pt-8">
+									<span
+										class="flex size-12 shrink-0 items-center justify-center rounded-full border border-calido-3/30 bg-calido-3/10 font-serif-ebgaramond text-2xl leading-none text-calido-3"
+										aria-hidden="true"
+									>
+										❝
+									</span>
+									<div class="min-w-0">
+										<p class="text-base text-calido-1">{testimonio.n}</p>
+										<p class="pt-1 text-xs uppercase tracking-[0.12em] text-calido-4">
+											{testimonio.r}
+										</p>
+									</div>
 								</div>
-							</div>
-						</article>
-				))
-			}
+							</article>
+						))
+					}
+					<div class="contents" aria-hidden="true">
+						{
+							TESTIMONIOS.map((testimonio) => (
+								<article
+									data-testimonial-card
+									class="group relative flex w-[min(100%,21rem)] shrink-0 flex-col rounded-lg border border-border bg-card/40 p-8 sm:w-[24rem] lg:w-[26rem]"
+								>
+									<p class="text-[clamp(1.05rem,1.4vw,1.3rem)] leading-[1.55] text-calido-1 font-serif-ebgaramond">
+										<span class="text-calido-3">“</span>
+										{testimonio.q}
+										<span class="text-calido-3">”</span>
+									</p>
+
+									<div class="mt-auto flex items-center gap-4 pt-8">
+										<span class="flex size-12 shrink-0 items-center justify-center rounded-full border border-calido-3/30 bg-calido-3/10 font-serif-ebgaramond text-2xl leading-none text-calido-3">
+											❝
+										</span>
+										<div class="min-w-0">
+											<p class="text-base text-calido-1">{testimonio.n}</p>
+											<p class="pt-1 text-xs uppercase tracking-[0.12em] text-calido-4">
+												{testimonio.r}
+											</p>
+										</div>
+									</div>
+								</article>
+							))
+						}
+					</div>
+				</div>
+				<div
+					class="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-[linear-gradient(to_right,var(--color-background)_0%,transparent_100%)] md:w-20 lg:w-24"
+					aria-hidden="true"
+				>
+				</div>
+				<div
+					class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-[linear-gradient(to_left,var(--color-background)_0%,transparent_100%)] md:w-20 lg:w-24"
+					aria-hidden="true"
+				>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -73,11 +124,121 @@ import { TESTIMONIOS } from "@/const";
 		opacity: 1;
 		transform: translateY(0);
 	}
+
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
 </style>
 
 <script>
 	import { initReveal } from "@/scripts/reveal";
 
+	const sliderCleanups = new WeakMap<Element, () => void>();
+
+	/** Velocidad horizontal del auto-scroll (px/s) */
+	const SPEED_PX_PER_SEC = 38;
+
+	function initTestimonialsSliders() {
+		document.querySelectorAll("[data-testimonials-slider]").forEach((root) => {
+			const slider = root.querySelector("[data-slider-track]");
+			if (!(slider instanceof HTMLElement)) return;
+
+			sliderCleanups.get(root)?.();
+
+			const reduceMotion = window.matchMedia(
+				"(prefers-reduced-motion: reduce)",
+			).matches;
+
+			let rafId = 0;
+			let lastTs = 0;
+			let paused = false;
+
+			const track = slider;
+
+			const cancelRaf = () => {
+				cancelAnimationFrame(rafId);
+				rafId = 0;
+				lastTs = 0;
+			};
+
+			const loopWidth = () => track.scrollWidth / 2;
+
+			function tick(ts: number) {
+				const lw = loopWidth();
+				if (
+					!reduceMotion &&
+					lw > 40 &&
+					!paused &&
+					track.scrollWidth > track.clientWidth + 8
+				) {
+					if (lastTs === 0) lastTs = ts;
+					else {
+						const dt = Math.min((ts - lastTs) / 1000, 0.072);
+						lastTs = ts;
+						track.scrollLeft += SPEED_PX_PER_SEC * dt;
+						if (track.scrollLeft >= lw - 2) {
+							track.scrollLeft -= lw;
+						}
+					}
+				}
+				if (!paused && !reduceMotion) {
+					rafId = requestAnimationFrame(tick);
+				}
+			}
+
+			const ac = new AbortController();
+			const { signal } = ac;
+
+			const pause = () => {
+				paused = true;
+				lastTs = 0;
+				cancelRaf();
+			};
+			const resume = () => {
+				paused = false;
+				lastTs = 0;
+				if (!reduceMotion) {
+					rafId = requestAnimationFrame(tick);
+				}
+			};
+
+			if (!reduceMotion) {
+				root.addEventListener("mouseenter", pause, { signal });
+				root.addEventListener("mouseleave", resume, { signal });
+				root.addEventListener("focusin", pause, { signal });
+				root.addEventListener(
+					"focusout",
+					(e) => {
+						if (!(e instanceof FocusEvent)) return;
+						const next = e.relatedTarget;
+						if (next instanceof Node && root.contains(next)) return;
+						resume();
+					},
+					{ signal },
+				);
+				root.addEventListener("touchstart", pause, { passive: true, signal });
+				root.addEventListener("touchend", resume, { passive: true, signal });
+
+				rafId = requestAnimationFrame(tick);
+			}
+
+			const dispose = () => {
+				paused = true;
+				cancelRaf();
+				ac.abort();
+			};
+			sliderCleanups.set(root, dispose);
+		});
+	}
+
 	initReveal();
-	document.addEventListener("astro:page-load", initReveal);
+	initTestimonialsSliders();
+	document.addEventListener("astro:page-load", () => {
+		initReveal();
+		initTestimonialsSliders();
+	});
 </script>

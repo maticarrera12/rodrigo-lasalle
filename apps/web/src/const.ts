@@ -34,7 +34,7 @@ export const NAV_LINKS = [
   { href: '/asesoramiento', label: 'Asesoramiento' },
 ];
 
-export const ESTABLISHED_YEAR = 2020;
+export const ESTABLISHED_YEAR = 2001;
 export const WHATSAPP_URL = 'https://wa.me/';
 export const CONSULTATION_URL = '/#contacto';
 
@@ -389,27 +389,88 @@ export const CONTACTO_ITEMS = [
 
 export const TESTIMONIOS = [
   {
-    q: 'Rodrigo nos explicó la sucesión como si estuviéramos en la cocina. Hacía años que nadie nos hablaba en castellano. Es la primera vez que entendí qué firmaba.',
-    n: 'María Inés C.',
-    r: 'Cliente · Familia y sucesiones',
-    avatar: '/images/avatars/t1.svg',
+    q: 'Desde la primera consulta sentí que mi caso estaba en buenas manos. Me explicaron cada paso con claridad y siempre estuvieron disponibles para responder mis dudas. Eso me dio mucha tranquilidad durante todo el proceso.',
+    n: 'Cliente de Familia',
+    r: 'Atención y confianza',
   },
   {
-    q: 'Esperaba un abogado que me hiciera sentir un número. Me encontré con alguien que se acordaba de los detalles del caso entre llamada y llamada. Eso no se compra.',
-    n: 'Federico A.',
-    r: 'Cliente · Derecho laboral',
-    avatar: '/images/avatars/t3.svg',
+    q: 'Lo que más valoro del Estudio Lasalle es la honestidad. Me explicaron los riesgos, las posibilidades reales y nunca me generaron falsas expectativas. Trabajaron con total profesionalismo.',
+    n: 'Cliente',
+    r: 'Atención y confianza',
   },
   {
-    q: 'Le consulté antes de firmar un contrato. Me lo trajo marcado a mano, con cinco cosas que no entendía. Me ahorró un problema serio. Y plata.',
-    n: 'Lucía V.',
-    r: 'Cliente · Civil y contratos',
-    avatar: '/images/avatars/t2.svg',
+    q: 'Atravesaba una situación familiar muy difícil y encontré abogados que no solo conocían el tema, sino que además supieron acompañarme y orientarme en cada decisión.',
+    n: 'Cliente de Derecho de Familia',
+    r: 'Atención y confianza',
   },
   {
-    q: 'Lo que más valoro es que cuando me dijo que no me convenía ir a juicio, le creí. Y tenía razón. Hay abogados que te empujan al juzgado; él no.',
-    n: 'Hernán P.',
-    r: 'Cliente · Mediación',
-    avatar: '/images/avatars/t4.svg',
+    q: 'La sucesión parecía un trámite complejo y lleno de obstáculos. El estudio se ocupó de todo, manteniéndonos informados permanentemente hasta lograr la inscripción de los bienes.',
+    n: 'Cliente de Sucesiones',
+    r: 'Sucesiones',
+  },
+  {
+    q: 'Gracias al asesoramiento recibido pudimos resolver una sucesión familiar evitando conflictos entre los herederos y encontrando soluciones prácticas para todos.',
+    n: 'Cliente de Sucesiones',
+    r: 'Sucesiones',
+  },
+  {
+    q: 'Antes de avanzar con la compra de una propiedad contratamos al estudio para revisar toda la documentación. Detectaron situaciones que podrían habernos generado problemas importantes. Fue una excelente decisión.',
+    n: 'Comprador',
+    r: 'Derecho inmobiliario',
+  },
+  {
+    q: 'Nos acompañaron durante toda la operación inmobiliaria, desde la reserva hasta la escrituración. Sentimos que cada paso estaba respaldado jurídicamente.',
+    n: 'Cliente',
+    r: 'Derecho inmobiliario',
+  },
+  {
+    q: 'Recuperamos un inmueble que creíamos perdido. El estudio diseñó una estrategia clara y nos acompañó hasta obtener el resultado esperado.',
+    n: 'Propietario',
+    r: 'Derecho inmobiliario',
+  },
+  {
+    q: 'Necesitaba recuperar mi propiedad por falta de pago del inquilino. Actuaron con rapidez y profesionalismo, manteniéndome informado durante todo el proceso.',
+    n: 'Propietario – Vicente López',
+    r: 'Desalojos y alquileres',
+  },
+  {
+    q: 'Lograron resolver un conflicto locativo que llevaba meses sin solución. La gestión fue eficiente y siempre tuve respuestas claras.',
+    n: 'Propietario',
+    r: 'Desalojos y alquileres',
+  },
+  {
+    q: 'Contratar el abono jurídico fue una de las mejores decisiones para nuestra empresa. Hoy contamos con asesoramiento permanente y evitamos problemas antes de que se conviertan en conflictos.',
+    n: 'Empresa PyME – San Fernando',
+    r: 'Empresas y PyMES',
+  },
+  {
+    q: 'El estudio se convirtió en un verdadero aliado estratégico. Nos asesoran en contratos, cuestiones laborales y decisiones comerciales con rapidez y criterio práctico.',
+    n: 'Empresa PyME',
+    r: 'Empresas y PyMES',
+  },
+  {
+    q: 'Tener respaldo jurídico permanente nos permitió brindar un servicio mucho más profesional a nuestros clientes y cerrar operaciones con mayor seguridad.',
+    n: 'Corredor Inmobiliario – CABA',
+    r: 'Inmobiliarias',
+  },
+  {
+    q: 'Las consultas son respondidas rápidamente y siempre con soluciones concretas. Hoy contamos con un equipo legal de confianza para todas nuestras operaciones.',
+    n: 'Administrador de Consorcios – Zona Norte',
+    r: 'Inmobiliarias',
+  },
+  {
+    q: 'Después de sufrir un accidente no sabía cómo reclamar. El estudio se ocupó de todo y consiguió una reparación justa por los daños sufridos.',
+    n: 'Cliente',
+    r: 'Daños y perjuicios',
+  },
+  {
+    q: 'Me acompañaron durante todo el proceso y defendieron mis derechos con firmeza. Siempre sentí que mi caso era una prioridad.',
+    n: 'Cliente',
+    r: 'Daños y perjuicios',
+  },
+  {
+    q: 'Elegimos el Estudio Jurídico Lasalle porque combina experiencia, capacidad y trato humano excepcional. La sensación de estar acompañado por profesionales comprometidos marca una diferencia enorme.',
+    n: 'Cliente',
+    r: 'Testimonio destacado',
   },
 ] as const;
