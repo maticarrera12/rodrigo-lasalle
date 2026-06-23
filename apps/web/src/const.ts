@@ -1,7 +1,7 @@
 // Site-wide constants
-export const SITE_TITLE = 'Matías Carrera';
-export const SITE_DESCRIPTION = 'Desarrollador Full Stack. Diseñador convertido a developer. Construyo aplicaciones web con React, Next.js y Astro.';
-export const SITE_URL = 'https://mcarreradev.com';
+export const SITE_TITLE = 'Estudio Jurídico Lasalle';
+export const SITE_DESCRIPTION = 'Estudio jurídico. Derecho inmobiliario, familia, sucesiones, laboral, daños y más. San Fernando, Provincia de Buenos Aires.';
+export const SITE_URL = 'https://lasalle.legal';
 
 /** Imagen para Open Graph / Twitter Cards (ruta en public/) */
 export const OG_IMAGE = '/images/op-graph.png';
@@ -11,21 +11,6 @@ export const OG_IMAGE_HEIGHT = 1656;
 /** Incrementá al cambiar favicon.ico para forzar recarga en navegadores */
 export const FAVICON_VERSION = '2';
 
-export const AUTHOR = {
-  name: 'Matías Carrera',
-  email: 'mcarreradev12@gmail.com',
-  location: 'Buenos Aires, Argentina',
-  role: 'Full Stack Developer',
-  available: true, // controlás el badge de disponibilidad desde acá
-  photo: '/images/profile.png',
-};
-
-export const SOCIAL_LINKS = {
-  github: 'https://github.com/maticarrera12',
-  linkedin: 'https://www.linkedin.com/in/matias-carrera/',
-  twitter: 'https://x.com/mcarreradev',
-  email: 'mailto:mcarreradev12@gmail.com',
-};
 
 export const NAV_LINKS = [
   { href: '/conocenos', label: 'Conocenos' },
@@ -35,7 +20,16 @@ export const NAV_LINKS = [
 ];
 
 export const ESTABLISHED_YEAR = 2001;
-export const WHATSAPP_URL = 'https://wa.me/';
+
+const WHATSAPP_NUMBER = '5491154631917';
+
+/** Construye un link de WhatsApp con un mensaje pre-cargado y codificado. */
+export const buildWhatsappUrl = (message: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+export const WHATSAPP_URL = buildWhatsappUrl(
+  'Hola, me gustaría obtener más información sobre sus servicios.',
+);
 export const CONSULTATION_URL = '/#contacto';
 
 export const HERO_STATS = [
@@ -50,14 +44,27 @@ export const HERO_STATS = [
     description: 'Poder Judicial y Adm. Pública',
   },
   {
-    label: 'Matrícula',
-    highlight: 'CASI Tomo IX',
-    description: 'Colegio de Abogados de San Isidro',
-  },
-  {
     label: 'Forma de trabajo',
     highlight: 'Presencial',
     description: 'y por videollamada · Argentina',
+  },
+];
+
+export const MATRICULAS = [
+  {
+    label: 'San Isidro',
+    tomo: 'Tomo XXXV · Folio 476',
+    description: 'Colegio de Abogados de San Isidro',
+  },
+  {
+    label: 'Capital Federal',
+    tomo: 'Tomo 90 · Folio 178',
+    description: 'Colegio Público de Abogados de la Capital Federal',
+  },
+  {
+    label: 'Federal',
+    tomo: 'Tomo 712 · Folio 381',
+    description: 'Matrícula Federal',
   },
 ];
 
@@ -382,9 +389,9 @@ export const ABOUT = {
 };
 
 export const CONTACTO_ITEMS = [
-  { key: "WhatsApp", value: "+54 9 11 4444 5555" },
-  { key: "Email",    value: "rodrigo@lasalle.legal" },
-  { key: "Estudio",  value: "Av. Pte. Perón 1240", sub: "San Fernando, Buenos Aires" },
+  { key: "WhatsApp", value: "+54 9 11 5463-1917" },
+  { key: "Email",    value: "estudio-lasalle@hotmail.com" },
+  { key: "Estudio",  value: "Alsina 1499", sub: "San Fernando (1646), Buenos Aires" },
 ] as const;
 
 export const TESTIMONIOS = [
@@ -472,5 +479,28 @@ export const TESTIMONIOS = [
     q: 'Elegimos el Estudio Jurídico Lasalle porque combina experiencia, capacidad y trato humano excepcional. La sensación de estar acompañado por profesionales comprometidos marca una diferencia enorme.',
     n: 'Cliente',
     r: 'Testimonio destacado',
+  },
+] as const;
+
+export const PREGUNTAS = [
+  {
+    q: '¿Cuánto tarda una sucesión?',
+    a: 'Depende del caso, pero seamos honestos: una sucesión sencilla, con acuerdo entre los herederos y los papeles en orden, suele resolverse en varios meses. Si hay bienes complejos, herederos en desacuerdo o documentación faltante, se extiende. En la primera consulta te doy una estimación realista para tu situación.',
+  },
+  {
+    q: '¿Puedo desalojar a un inquilino que no paga?',
+    a: 'Sí, pero por la vía legal: nada de cambiar la cerradura o cortar los servicios, porque eso te puede traer un problema a vos. Se inicia el reclamo formal y, si corresponde, la demanda de desalojo. Cuanto antes actúes, mejor: cada mes que pasa es plata que no vuelve. Contame el caso y te digo cómo encararlo.',
+  },
+  {
+    q: '¿Qué documentación necesito para vender una propiedad heredada?',
+    a: 'Primero la sucesión tiene que estar hecha y el inmueble inscripto a nombre de los herederos; sin eso no se puede escriturar. Vas a necesitar el título de propiedad, la declaratoria de herederos inscripta, los certificados de dominio e inhibiciones y los libres de deuda. Si todavía no terminaste la sucesión, ese es el primer paso, y te acompaño en todo el proceso.',
+  },
+  {
+    q: '¿Cuánto dura un juicio de usucapión?',
+    a: 'Es de los procesos más largos, no te voy a mentir: hablamos de años, no de meses. Hay que probar la posesión de manera continua y pública, citar a los titulares registrales y a los colindantes, y a veces interviene el Estado. Lo importante es armar el caso bien desde el inicio para no perder tiempo. Si venís ocupando un inmueble hace años, vale la pena que lo charlemos.',
+  },
+  {
+    q: '¿Qué hacer ante un despido?',
+    a: 'Lo primero: no firmes nada que no entiendas y guardá todo —telegramas, recibos, mensajes—. Tenés plazos legales para reclamar, así que no lo dejes pasar. Según cómo te hayan despedido (con causa, sin causa, o si estabas en negro) cambia mucho lo que te corresponde. Escribime apenas puedas y vemos juntos cómo proteger tus derechos.',
   },
 ] as const;

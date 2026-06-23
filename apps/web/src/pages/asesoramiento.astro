@@ -2,6 +2,7 @@
 import "@workspace/ui/globals.css";
 import Main from "@/layouts/main.astro";
 import { ABONOS } from "@/const";
+import CtaConsulta from "@/components/CtaConsulta.astro";
 ---
 
 <html lang="es">
@@ -122,6 +123,13 @@ import { ABONOS } from "@/const";
                     </p>
                   </blockquote>
                 </div>
+
+                <CtaConsulta
+                  titleTop="Asesoramiento legal"
+                  titleAccent="a la altura de tus desafíos."
+                  text={`¿Te interesa el asesoramiento para ${abono.label}? Escribime y armamos una propuesta a la medida de tu organización.`}
+                  whatsappMessage={`Hola, me interesa el asesoramiento para ${abono.label}.`}
+                />
               </div>
             ))
           }

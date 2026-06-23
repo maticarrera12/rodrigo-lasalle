@@ -3,6 +3,7 @@ import "@workspace/ui/globals.css";
 import Main from "@/layouts/main.astro";
 import { AREAS } from "@/const";
 import type { Area } from "@/const";
+import CtaConsulta from "@/components/CtaConsulta.astro";
 
 export function getStaticPaths() {
   return AREAS.map((area) => ({
@@ -69,6 +70,14 @@ const { area } = Astro.props;
               </ul>
             </div>
           </div>
+
+          <CtaConsulta
+            eyebrow="Hablemos de tu caso"
+            titleTop="¿Tenés un caso de"
+            titleAccent={`${area.t}?`}
+            text="Contame tu situación. La primera consulta es para entender qué te pasa y ver si te puedo ayudar."
+            whatsappMessage={`Hola, quería consultar sobre ${area.t}.`}
+          />
         </div>
       </section>
     </Main>

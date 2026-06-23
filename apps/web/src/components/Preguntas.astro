@@ -1,0 +1,162 @@
+---
+import { PREGUNTAS } from "@/const";
+---
+
+<section id="preguntas" class="w-full pb-24 lg:pb-32">
+	<div class="container border-t border-border pt-16 lg:pt-24">
+		<div class="lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16 xl:gap-20">
+			<div
+				class="reveal mb-12 lg:col-start-2 lg:mb-16"
+				data-reveal
+			>
+				<p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+					— 03 / Preguntas frecuentes
+				</p>
+				<h2 class="pt-5 text-[clamp(2rem,4vw,2.75rem)] leading-[1.08] text-calido-1 font-serif-ebgaramond">
+					Lo que más <span class="text-calido-3 italic">me preguntan</span>.
+				</h2>
+			</div>
+
+			<div
+				class="reveal border-t border-border lg:col-start-2"
+				data-reveal
+				data-reveal-delay={80}
+			>
+				{
+					PREGUNTAS.map((pregunta, index) => (
+					<div class="faq-item border-b border-border" data-faq-item>
+						<h3>
+							<button
+								type="button"
+								class="faq-trigger flex w-full items-center justify-between gap-6 py-6 text-left lg:py-7"
+								aria-expanded="false"
+								aria-controls={`faq-panel-${index}`}
+								id={`faq-trigger-${index}`}
+							>
+								<span class="text-lg text-calido-1 font-serif-ebgaramond lg:text-xl">
+									{pregunta.q}
+								</span>
+								<svg
+									class="faq-chevron size-5 shrink-0 text-calido-3"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<path d="m6 9 6 6 6-6" />
+								</svg>
+							</button>
+						</h3>
+						<div
+							id={`faq-panel-${index}`}
+							class="faq-panel"
+							role="region"
+							aria-labelledby={`faq-trigger-${index}`}
+						>
+							<div class="faq-panel-inner">
+								<p class="max-w-2xl pb-6 text-base leading-relaxed text-calido-4 lg:pb-7">
+									{pregunta.a}
+								</p>
+							</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.reveal {
+		opacity: 0;
+		transform: translateY(1rem);
+		transition:
+			opacity 0.55s ease,
+			transform 0.55s ease;
+	}
+
+	.reveal.is-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.faq-chevron {
+		transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.faq-item[data-open="true"] .faq-chevron {
+		transform: rotate(180deg);
+	}
+
+	/* Smooth height: 0fr -> 1fr anima el alto sin medir en JS */
+	.faq-panel {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.faq-item[data-open="true"] .faq-panel {
+		grid-template-rows: 1fr;
+	}
+
+	.faq-panel-inner {
+		overflow: hidden;
+	}
+
+	.faq-trigger {
+		cursor: pointer;
+	}
+
+	.faq-trigger:hover .faq-chevron {
+		opacity: 0.7;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.faq-panel,
+		.faq-chevron {
+			transition: none;
+		}
+	}
+</style>
+
+<script>
+	import { initReveal } from "@/scripts/reveal";
+
+	function initFaq() {
+		const items = document.querySelectorAll("[data-faq-item]");
+		items.forEach((item) => {
+			const trigger = item.querySelector(".faq-trigger");
+			if (!(trigger instanceof HTMLButtonElement)) return;
+			if (trigger.dataset.faqBound === "true") return;
+			trigger.dataset.faqBound = "true";
+
+			trigger.addEventListener("click", () => {
+				const isOpen = item.getAttribute("data-open") === "true";
+
+				// Cierra el resto (acordeón: una sola abierta a la vez)
+				items.forEach((other) => {
+					if (other === item) return;
+					other.setAttribute("data-open", "false");
+					other
+						.querySelector(".faq-trigger")
+						?.setAttribute("aria-expanded", "false");
+				});
+
+				item.setAttribute("data-open", isOpen ? "false" : "true");
+				trigger.setAttribute("aria-expanded", isOpen ? "false" : "true");
+			});
+		});
+	}
+
+	initReveal();
+	initFaq();
+	document.addEventListener("astro:page-load", () => {
+		initReveal();
+		initFaq();
+	});
+</script>
