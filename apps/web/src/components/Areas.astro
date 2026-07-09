@@ -5,54 +5,56 @@ import { AREAS } from "@/const";
 
 <section id="especialidades" class="w-full pt-28 pb-8 lg:pt-32 lg:pb-16">
 	<div class="container">
-		<div
-			class="reveal mb-14 flex flex-col gap-8 lg:mb-16 lg:flex-row lg:items-end lg:justify-between lg:gap-16"
+		<header
+			class="reveal mb-14 grid gap-8 lg:mb-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end lg:gap-16"
 			data-reveal
 		>
-			<div class="max-w-md">
-				<p class="text-xs font-medium uppercase tracking-[0.12em] text-calido-4">
-					— 04 / Áreas de trabajo
-				</p>
-				<h1 class="pt-4 text-[clamp(3rem,4vw,2.75rem)] leading-tight text-calido-1 font-serif-ebgaramond">
-					En qué <span class="text-calido-3 italic">te puedo</span> acompañar.
-				</h1>
-			</div>
-			<p class="max-w-md text-lg leading-relaxed text-calido-4">
+			<p class="text-xs font-medium uppercase tracking-[0.12em] text-calido-4 lg:col-start-1 lg:row-start-1">
+				— 04 / Áreas de trabajo
+			</p>
+			<h1 class="max-w-md pt-4 text-[clamp(3rem,4vw,2.75rem)] leading-tight text-calido-1 font-serif-ebgaramond lg:col-start-1 lg:row-start-2">
+				En qué <span class="text-calido-3 italic">te puedo</span> acompañar.
+			</h1>
+			<p class="max-w-md text-lg leading-relaxed text-calido-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-end">
 				Ocho áreas en las que trabajamos, explicadas como las explicaríamos en la primera consulta:
 				qué problema resuelven, a quién le sirven, cuándo conviene venir antes de que todo se complique.
 			</p>
-		</div>
+		</header>
 
-		<div class="divide-y divide-border border-y border-border">
-			{
-				AREAS.map((area, index) => (
-					<a
-						href={`/especialidades/${area.slug}`}
-						class="reveal group flex flex-col gap-4 py-8 no-underline lg:grid lg:grid-cols-[4rem_minmax(0,16rem)_1fr_auto] lg:items-center lg:gap-x-8 lg:py-10"
-						data-reveal
-						data-reveal-delay={index * 60}
-					>
-						<p class="shrink-0 text-sm tabular-nums text-calido-4 transition-all duration-200 group-hover:translate-x-2 lg:col-start-1">/ {area.n}</p>
+		<nav aria-label="Áreas de trabajo">
+			<ul class="m-0 divide-y divide-border border-y border-border p-0 list-none">
+				{
+					AREAS.map((area, index) => (
+						<li>
+							<a
+								href={`/especialidades/${area.slug}`}
+								class="reveal group flex flex-col gap-4 py-8 no-underline lg:grid lg:grid-cols-[4rem_minmax(0,16rem)_1fr_auto] lg:items-center lg:gap-x-8 lg:py-10"
+								data-reveal
+								data-reveal-delay={index * 60}
+							>
+								<p class="shrink-0 text-sm tabular-nums text-calido-4 transition-all duration-200 group-hover:translate-x-2 lg:col-start-1">/ {area.n}</p>
 
-						<div class="flex items-center justify-between gap-4 lg:contents">
-							<div class="flex items-center gap-4 lg:col-start-2 lg:gap-8">
-								<Icon name={area.icon} class="h-8 w-8 shrink-0 text-calido-3 transition-all duration-200 group-hover:translate-x-2" aria-hidden="true" />
-								<h2 class="text-2xl leading-snug text-calido-1 font-serif-ebgaramond transition-all duration-200 group-hover:translate-x-2 lg:text-[2rem]">
-									{area.t}
-								</h2>
-							</div>
-							<span class="flex shrink-0 items-center gap-1 text-sm text-calido-3 transition-all duration-200 group-hover:translate-x-2 lg:col-start-4 lg:justify-self-end" aria-hidden="true">
-								Ver más →
-							</span>
-						</div>
+								<div class="flex items-center justify-between gap-4 lg:contents">
+									<div class="flex items-center gap-4 lg:col-start-2 lg:gap-8">
+										<Icon name={area.icon} class="h-8 w-8 shrink-0 text-calido-3 transition-all duration-200 group-hover:translate-x-2" aria-hidden="true" />
+										<h2 class="text-2xl leading-snug text-calido-1 font-serif-ebgaramond transition-all duration-200 group-hover:translate-x-2 lg:text-[2rem]">
+											{area.t}
+										</h2>
+									</div>
+									<span class="flex shrink-0 items-center gap-1 text-sm text-calido-3 transition-all duration-200 group-hover:translate-x-2 lg:col-start-4 lg:justify-self-end" aria-hidden="true">
+										Ver más →
+									</span>
+								</div>
 
-						<p class="text-base leading-relaxed text-calido-4 transition-all duration-200 group-hover:translate-x-2 lg:col-start-3 lg:row-start-1">
-							{area.d}
-						</p>
-					</a>
-				))
-			}
-		</div>
+								<p class="text-base leading-relaxed text-calido-4 transition-all duration-200 group-hover:translate-x-2 lg:col-start-3 lg:row-start-1">
+									{area.d}
+								</p>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
 	</div>
 </section>
 

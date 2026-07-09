@@ -24,104 +24,121 @@
 @source "../**/*.{ts,tsx,astro}";
 
 :root {
-  /* casi negro azulado + dorado oscuro + crema */
-  --calido-1: #0f1929;
-  --calido-2: #0d1520;
-  --calido-3: #8B5A2B;
-  --calido-4: #5e6878;
-  --sobrio-1: #0f1929;
-  --sobrio-2: #0d1520;
-  --sobrio-3: #8b7149;
-  --sobrio-4: #5e6878;
-  --variant-accent: var(--calido-1);
+  /* gun-powder + magic-mint */
+  --gun-powder-50: #f5f6f9;
+  --gun-powder-100: #e7e9f2;
+  --gun-powder-200: #d5d9e8;
+  --gun-powder-300: #b8c0d8;
+  --gun-powder-400: #96a0c4;
+  --gun-powder-500: #7c85b5;
+  --gun-powder-600: #6a6fa6;
+  --gun-powder-700: #5e6097;
+  --gun-powder-800: #51517c;
+  --gun-powder-900: #3c3d59;
+  --gun-powder-950: #2c2c3f;
+  --geraldine-50: #fdf3f3;
+  --geraldine-100: #fde4e3;
+  --geraldine-200: #fccdcc;
+  --geraldine-300: #f8aba9;
+  --geraldine-400: #f49390;
+  --geraldine-500: #e7514c;
+  --geraldine-600: #d3342f;
+  --geraldine-700: #b22723;
+  --geraldine-800: #932421;
+  --geraldine-900: #7a2522;
+  --geraldine-950: #420f0d;
 
-  --background: #f5f1e6;
-  --foreground: var(--calido-1);
-  --card: #f5f1e6;
-  --card-foreground: var(--calido-1);
-  --popover: #f5f1e6;
-  --popover-foreground: var(--calido-1);
-  --primary: var(--calido-2);
-  --primary-foreground: #f5f1e6;
-  --secondary: #ede8dc;
-  --secondary-foreground: var(--calido-1);
-  --muted: #ede8dc;
-  --muted-foreground: var(--calido-4);
-  --accent: #ede8dc;
-  --accent-foreground: var(--calido-1);
+  /* semantic aliases — headings, surfaces, detail/accent, muted */
+  --calido-1: var(--gun-powder-900);
+  --calido-2: var(--gun-powder-950);
+  --calido-3: var(--gun-powder-700);
+  --calido-4: var(--gun-powder-500);
+  --sobrio-1: var(--gun-powder-900);
+  --sobrio-2: var(--gun-powder-950);
+  --sobrio-3: var(--gun-powder-700);
+  --sobrio-4: var(--gun-powder-500);
+  --variant-accent: var(--gun-powder-900);
+
+  --background: var(--gun-powder-50);
+  --foreground: var(--gun-powder-900);
+  --card: var(--gun-powder-50);
+  --card-foreground: var(--gun-powder-900);
+  --popover: var(--gun-powder-50);
+  --popover-foreground: var(--gun-powder-900);
+  --primary: var(--gun-powder-900);
+  --primary-foreground: var(--gun-powder-50);
+  --secondary: var(--gun-powder-100);
+  --secondary-foreground: var(--gun-powder-900);
+  --muted: var(--gun-powder-100);
+  --muted-foreground: var(--gun-powder-500);
+  --accent: var(--gun-powder-100);
+  --accent-foreground: var(--gun-powder-900);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #ddd8cc;
-  --input: #ddd8cc;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --border: var(--gun-powder-200);
+  --input: var(--gun-powder-200);
+  --ring: var(--gun-powder-400);
+  --chart-1: var(--gun-powder-700);
+  --chart-2: var(--gun-powder-600);
+  --chart-3: var(--gun-powder-800);
+  --chart-4: var(--gun-powder-400);
+  --chart-5: var(--gun-powder-500);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: var(--gun-powder-50);
+  --sidebar-foreground: var(--gun-powder-900);
+  --sidebar-primary: var(--gun-powder-900);
+  --sidebar-primary-foreground: var(--gun-powder-50);
+  --sidebar-accent: var(--gun-powder-100);
+  --sidebar-accent-foreground: var(--gun-powder-900);
+  --sidebar-border: var(--gun-powder-200);
+  --sidebar-ring: var(--gun-powder-400);
 }
 
 .dark {
-  /* misma paleta invertida — navy de fondo, crema y dorado de acento */
-  --calido-1: #f5f1e6;
-  --calido-2: #f5f1e6;
-  --calido-3: #b8956a;
-  --calido-4: #8a939e;
-  --sobrio-1: #f5f1e6;
-  --sobrio-2: #f5f1e6;
-  --sobrio-3: #b8956a;
-  --sobrio-4: #8a939e;
+  --calido-1: var(--gun-powder-50);
+  --calido-2: var(--gun-powder-100);
+  --calido-3: var(--gun-powder-300);
+  --calido-4: var(--gun-powder-400);
+  --sobrio-1: var(--gun-powder-50);
+  --sobrio-2: var(--gun-powder-100);
+  --sobrio-3: var(--gun-powder-300);
+  --sobrio-4: var(--gun-powder-400);
 
-  --background: #1d1d1d;
-  --foreground: #f5f1e6;
-  --card: #0d1520;
-  --card-foreground: #f5f1e6;
-  --popover: #0d1520;
-  --popover-foreground: #f5f1e6;
-  --primary: #f5f1e6;
-  --primary-foreground: #0d1520;
-  --secondary: #151f2e;
-  --secondary-foreground: #f5f1e6;
-  --muted: #151f2e;
-  --muted-foreground: #8a939e;
-  --accent: #151f2e;
-  --accent-foreground: #f5f1e6;
+  --background: var(--gun-powder-950);
+  --foreground: var(--gun-powder-50);
+  --card: var(--gun-powder-900);
+  --card-foreground: var(--gun-powder-50);
+  --popover: var(--gun-powder-900);
+  --popover-foreground: var(--gun-powder-50);
+  --primary: var(--gun-powder-50);
+  --primary-foreground: var(--gun-powder-950);
+  --secondary: var(--gun-powder-800);
+  --secondary-foreground: var(--gun-powder-50);
+  --muted: var(--gun-powder-800);
+  --muted-foreground: var(--gun-powder-400);
+  --accent: var(--gun-powder-800);
+  --accent-foreground: var(--gun-powder-50);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: #1e2a3a;
-  --input: #1e2a3a;
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: var(--calido-2);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --border: var(--gun-powder-800);
+  --input: var(--gun-powder-800);
+  --ring: var(--gun-powder-500);
+  --chart-1: var(--gun-powder-300);
+  --chart-2: var(--gun-powder-500);
+  --chart-3: var(--gun-powder-200);
+  --chart-4: var(--gun-powder-400);
+  --chart-5: var(--gun-powder-600);
+  --sidebar: var(--gun-powder-900);
+  --sidebar-foreground: var(--gun-powder-50);
+  --sidebar-primary: var(--gun-powder-50);
+  --sidebar-primary-foreground: var(--gun-powder-950);
+  --sidebar-accent: var(--gun-powder-800);
+  --sidebar-accent-foreground: var(--gun-powder-50);
+  --sidebar-border: var(--gun-powder-800);
+  --sidebar-ring: var(--gun-powder-500);
 }
 
-[data-variant="calido"] {
-  --variant-accent: var(--calido-1);
-}
 
-[data-variant="sobrio"] {
-  --variant-accent: var(--sobrio-1);
-}
 
 @theme inline {
   --font-sans: 'Geist Variable', sans-serif;
@@ -130,6 +147,39 @@
   --font-serif-cormorant: 'Cormorant Garamond', Georgia, serif;
   --font-serif-baskerville: 'Libre Baskerville', Georgia, serif;
   --font-mono: 'Geist Mono Variable', monospace;
+  --color-gun-powder-50: var(--gun-powder-50);
+  --color-gun-powder-100: var(--gun-powder-100);
+  --color-gun-powder-200: var(--gun-powder-200);
+  --color-gun-powder-300: var(--gun-powder-300);
+  --color-gun-powder-400: var(--gun-powder-400);
+  --color-gun-powder-500: var(--gun-powder-500);
+  --color-gun-powder-600: var(--gun-powder-600);
+  --color-gun-powder-700: var(--gun-powder-700);
+  --color-gun-powder-800: var(--gun-powder-800);
+  --color-gun-powder-900: var(--gun-powder-900);
+  --color-gun-powder-950: var(--gun-powder-950);
+  --color-bittersweet-50: var(--bittersweet-50);
+  --color-bittersweet-100: var(--bittersweet-100);
+  --color-bittersweet-200: var(--bittersweet-200);
+  --color-bittersweet-300: var(--bittersweet-300);
+  --color-bittersweet-400: var(--bittersweet-400);
+  --color-bittersweet-500: var(--bittersweet-500);
+  --color-bittersweet-600: var(--bittersweet-600);
+  --color-bittersweet-700: var(--bittersweet-700);
+  --color-bittersweet-800: var(--bittersweet-800);
+  --color-bittersweet-900: var(--bittersweet-900);
+  --color-bittersweet-950: var(--bittersweet-950);
+  --color-geraldine-50: var(--geraldine-50);
+  --color-geraldine-100: var(--geraldine-100);
+  --color-geraldine-200: var(--geraldine-200);
+  --color-geraldine-300: var(--geraldine-300);
+  --color-geraldine-400: var(--geraldine-400);
+  --color-geraldine-500: var(--geraldine-500);
+  --color-geraldine-600: var(--geraldine-600);
+  --color-geraldine-700: var(--geraldine-700);
+  --color-geraldine-800: var(--geraldine-800);
+  --color-geraldine-900: var(--geraldine-900);
+  --color-geraldine-950: var(--geraldine-950);
   --color-variant-accent: var(--variant-accent);
   --color-calido-1: var(--calido-1);
   --color-calido-2: var(--calido-2);
@@ -194,3 +244,5 @@
 		@apply mx-auto w-full max-w-[68.75rem] px-8 max-[35.1875rem]:px-4;
 	}
 }
+
+
