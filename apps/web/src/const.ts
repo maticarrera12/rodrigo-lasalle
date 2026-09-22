@@ -360,7 +360,7 @@ export const CASOS = [
 ] as const;
 
 export const ABOUT = {
-  photo: '/images/hero-placeholder.svg',
+  photo: '/images/hero.webp',
   photoCaption: ['Estudio Lasalle · San Fernando', String(new Date().getFullYear())],
   qa: [
     {
