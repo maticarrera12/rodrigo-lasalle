@@ -22,31 +22,31 @@ import { AREAS } from "@/const";
 		</header>
 
 		<nav aria-label="Áreas de trabajo">
-			<ul class="m-0 divide-y divide-border border-y border-border p-0 list-none">
+			<ul class="m-0 grid list-none grid-cols-1 border-b border-border p-0 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24">
 				{
 					AREAS.map((area, index) => (
-						<li>
+						<li class="border-t border-border">
 							<a
 								href={`/especialidades/${area.slug}`}
-								class="reveal group flex flex-col gap-4 py-8 no-underline lg:grid lg:grid-cols-[4rem_minmax(0,16rem)_1fr_auto] lg:items-center lg:gap-x-8 lg:py-10"
+								class="reveal group flex h-full flex-col gap-5 py-8 no-underline lg:py-10"
 								data-reveal
-								data-reveal-delay={index * 60}
+								data-reveal-delay={Math.floor(index / 2) * 80}
 							>
-								<p class="shrink-0 text-sm tabular-nums text-calido-4 transition-all duration-200 group-hover:translate-x-2 lg:col-start-1">/ {area.n}</p>
-
-								<div class="flex items-center justify-between gap-4 lg:contents">
-									<div class="flex items-center gap-4 lg:col-start-2 lg:gap-8">
-										<Icon name={area.icon} class="h-8 w-8 shrink-0 text-calido-3 transition-all duration-200 group-hover:translate-x-2" aria-hidden="true" />
-										<h2 class="text-2xl leading-snug text-calido-1 font-serif-ebgaramond transition-all duration-200 group-hover:translate-x-2 lg:text-[2rem]">
-											{area.t}
-										</h2>
-									</div>
-									<span class="flex shrink-0 items-center gap-1 text-sm text-calido-3 transition-all duration-200 group-hover:translate-x-2 lg:col-start-4 lg:justify-self-end" aria-hidden="true">
+								<div class="flex items-center justify-between gap-4">
+									<p class="text-sm tabular-nums text-calido-4 transition-all duration-200 group-hover:translate-x-2">/ {area.n}</p>
+									<span class="flex shrink-0 items-center gap-1 text-sm text-calido-3 transition-all duration-200 group-hover:-translate-x-2" aria-hidden="true">
 										Ver más →
 									</span>
 								</div>
 
-								<p class="text-base leading-relaxed text-calido-4 transition-all duration-200 group-hover:translate-x-2 lg:col-start-3 lg:row-start-1">
+								<div class="flex items-center gap-4">
+									<Icon name={area.icon} class="h-8 w-8 shrink-0 text-calido-3 transition-all duration-200 group-hover:translate-x-2" aria-hidden="true" />
+									<h2 class="text-2xl leading-snug text-calido-1 font-serif-ebgaramond transition-all duration-200 group-hover:translate-x-2 lg:text-[2rem]">
+										{area.t}
+									</h2>
+								</div>
+
+								<p class="max-w-lg text-base leading-relaxed text-calido-4 transition-all duration-200 group-hover:translate-x-2">
 									{area.d}
 								</p>
 							</a>

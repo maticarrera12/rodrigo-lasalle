@@ -31,9 +31,17 @@ const { area } = Astro.props;
       <section class="w-full pt-28 pb-8 lg:pt-32 lg:pb-16">
         <div class="container">
           <div class="reveal mb-12" data-reveal>
-            <p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
-              — Especialidades / {area.n}
-            </p>
+            <nav aria-label="Breadcrumb" class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
+              <a href="/especialidades" class="back-link group inline-flex items-center gap-1.5 text-calido-3">
+                <span
+                  class="shrink-0 transition-transform duration-300 ease-out group-hover:-translate-x-1"
+                  aria-hidden="true">←</span
+                >
+                <span class="back-link-text relative">Especialidades</span>
+              </a>
+              <span class="px-1.5" aria-hidden="true">/</span>
+              <span aria-current="page">{area.n}</span>
+            </nav>
             <h1 class="pt-4 text-[clamp(2.25rem,4.5vw,3rem)] leading-tight text-calido-1 font-serif-ebgaramond italic">
               {area.t}
             </h1>
@@ -41,28 +49,19 @@ const { area } = Astro.props;
 
           <div class="grid gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-20">
             <div class="reveal" data-reveal data-reveal-delay={80}>
-              <p class="text-base leading-relaxed text-calido-4 lg:text-lg">
+              <p class="text-lg leading-relaxed text-calido-4 lg:text-xl lg:leading-relaxed">
                 {area.descripcionLarga}
               </p>
-              <div class="mt-8">
-                <a href="/especialidades" class="back-link group inline-flex items-center gap-1.5 text-sm text-calido-3">
-                  <span
-                    class="shrink-0 transition-transform duration-300 ease-out group-hover:-translate-x-1"
-                    aria-hidden="true"
-                  >←</span>
-                  <span class="back-link-text relative">Volver a especialidades</span>
-                </a>
-              </div>
             </div>
 
             <div class="reveal" data-reveal data-reveal-delay={160}>
               <p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4 mb-6">
                 Servicios incluidos
               </p>
-              <ul class="divide-y divide-border border-y border-border">
+              <ul class="relative grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2 sm:gap-x-10 sm:before:absolute sm:before:inset-y-0 sm:before:left-1/2 sm:before:w-px sm:before:-translate-x-1/2 sm:before:bg-border/60">
                 {
                   area.servicios.map((servicio) => (
-                    <li class="py-3 text-base leading-relaxed text-calido-1 cursor-pointer hover:translate-x-2 transition-all duration-200">
+                    <li class="flex items-center rounded-2xl bg-card px-5 py-4 text-base leading-snug text-calido-1 transition-all duration-200 hover:-translate-y-0.5 hover:bg-muted">
                       {servicio}
                     </li>
                   ))

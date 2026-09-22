@@ -6,33 +6,21 @@ const qaDelays = [80, 160, 200];
 
 <section id="conoceme" class="w-full pt-28 pb-8 lg:pt-32 lg:pb-16">
 	<div class="container">
-		<div
-			class="reveal mb-16 grid gap-8 lg:mb-24 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-16 xl:gap-20"
-			data-reveal
-		>
-			<div>
+		<div class="grid gap-14 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-16 xl:gap-20">
+			<div class="reveal lg:sticky lg:top-28 lg:self-start" data-reveal>
 				<p class="text-xs font-medium uppercase tracking-[0.14em] text-calido-4">
 					— 03 / Sobre nosotros
 				</p>
 				<h1 class="pt-5 text-[clamp(2.25rem,4.5vw,3rem)] leading-[1.08] text-calido-1 font-serif-ebgaramond">
 					Una <span class="text-calido-3 italic">conversación</span>, antes que un expediente.
 				</h1>
-			</div>
-			<p class="max-w-md text-base leading-relaxed text-calido-4 lg:pt-16 lg:text-lg">
-				Rodrigo y Germán Lasalle, abogados con amplia trayectoria en el ámbito privado,
-				el Poder Judicial y la Administración Pública.
-			</p>
-		</div>
-
-		<div class="grid gap-14 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-16 xl:gap-20">
-			<div class="reveal lg:sticky lg:top-28 lg:self-start" data-reveal>
-				<figure>
+				<figure class="mt-10">
 					<img
 						src={ABOUT.photo}
 						alt="Rodrigo Lasalle en su estudio"
 						width="400"
 						height="500"
-						class="aspect-4/5 w-full object-cover"
+						class="aspect-4/5 w-full object-cover lg:max-h-[50vh]"
 						loading="lazy"
 						decoding="async"
 					/>
@@ -42,6 +30,12 @@ const qaDelays = [80, 160, 200];
 					<p class="text-xs font-serif italic text-calido-4">{ABOUT.photoCaption[1]}</p>
 				</div>
 			</div>
+
+			<div>
+				<p class="reveal max-w-xl pb-10 text-base leading-relaxed text-calido-4 lg:pt-16 lg:text-lg" data-reveal>
+					Rodrigo y Germán Lasalle, abogados con amplia trayectoria en el ámbito privado,
+					el Poder Judicial y la Administración Pública.
+				</p>
 
 			<div class="divide-y divide-border">
 				<div class="reveal py-9 first:pt-0 lg:py-10" data-reveal data-reveal-delay={qaDelays[0]}>
@@ -95,6 +89,7 @@ const qaDelays = [80, 160, 200];
 						))
 					}
 				</div>
+			</div>
 			</div>
 		</div>
 
