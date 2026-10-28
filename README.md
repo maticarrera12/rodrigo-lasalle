@@ -6,26 +6,31 @@ Built with Astro 5, React 19, Tailwind CSS 4 and shadcn/ui, in a Turborepo + pnp
 
 ## Screenshots
 
-| Light | Dark |
+![Home, hero](docs/screenshots/hero.jpg)
+
+| Testimonials | FAQ |
 | --- | --- |
-| ![Home, light](docs/screenshots/home-light.png) | ![Home, dark](docs/screenshots/home-dark.png) |
+| ![Testimonials](docs/screenshots/testimonios.jpg) | ![FAQ](docs/screenshots/preguntas.jpg) |
+| **Contact** | **Dark mode** |
+| ![Contact](docs/screenshots/contacto.jpg) | ![Hero, dark mode](docs/screenshots/hero-dark.jpg) |
 
-<details>
-<summary>More pages</summary>
+### Pages
 
-| Page | Light | Dark |
-| --- | --- | --- |
-| Specialties | ![](docs/screenshots/especialidades-light.png) | ![](docs/screenshots/especialidades-dark.png) |
-| Specialty detail | ![](docs/screenshots/especialidad-detalle-light.png) | ![](docs/screenshots/especialidad-detalle-dark.png) |
-| Advisory plans | ![](docs/screenshots/asesoramiento-light.png) | ![](docs/screenshots/asesoramiento-dark.png) |
-| Success stories | ![](docs/screenshots/casos-de-exito-light.png) | ![](docs/screenshots/casos-de-exito-dark.png) |
-| About | ![](docs/screenshots/conocenos-light.png) | ![](docs/screenshots/conocenos-dark.png) |
+| Specialties | Specialty detail |
+| --- | --- |
+| ![Specialties](docs/screenshots/especialidades.jpg) | ![Specialty detail](docs/screenshots/especialidad-detalle.jpg) |
+| **Advisory plans** | **Success stories** |
+| ![Advisory plans](docs/screenshots/asesoramiento.jpg) | ![Success stories](docs/screenshots/casos-de-exito.jpg) |
 
-Mobile (390px):
+![About](docs/screenshots/conocenos.jpg)
 
-<img src="docs/screenshots/home-mobile.png" alt="Home, mobile" width="260" />
+### Mobile
 
-</details>
+<p>
+  <img src="docs/screenshots/mobile-hero.jpg" alt="Mobile hero" width="240">
+  <img src="docs/screenshots/mobile-especialidades.jpg" alt="Mobile specialties" width="240">
+  <img src="docs/screenshots/mobile-asesoramiento.jpg" alt="Mobile advisory plans" width="240">
+</p>
 
 ## Routes
 
