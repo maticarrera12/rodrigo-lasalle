@@ -3,14 +3,22 @@ import Nav from "@/components/Nav.astro"
 import Footer from "@/components/Footer.astro"
 import "@workspace/ui/globals.css"
 import { getThemeInitInlineScript } from "@workspace/ui/lib/theme-init-script"
+
+interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Astro App</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <script is:inline set:html={getThemeInitInlineScript()} />
   </head>
   <body>
@@ -18,11 +26,9 @@ import { getThemeInitInlineScript } from "@workspace/ui/lib/theme-init-script"
     <slot />
     <Footer />
     <script>
-
-
       import { initThemeClient } from "@/scripts/theme-client";
 
       initThemeClient();
-		</script>
+    </script>
   </body>
-</html> 
+</html>

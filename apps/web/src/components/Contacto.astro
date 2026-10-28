@@ -48,10 +48,10 @@ import WhatsappButton from "@workspace/ui/components/astro/WhatsappButton.astro"
             <a href="#contacto" class="contact-row block py-5 group">
               <div class="flex items-center justify-between gap-4">
                 <div class="flex items-baseline gap-6 min-w-0">
-                  <span class="w-20 shrink-0 text-[10px] group-hover:translate-x-1 transition-all duration-200 font-medium uppercase tracking-[0.14em] text-calido-4">
+                  <span class="w-20 shrink-0 text-[10px] group-hover:translate-x-1 transition-transform duration-200 ease-out font-medium uppercase tracking-[0.14em] text-calido-4">
                     {item.key}
                   </span>
-                  <span class="value-text group-hover:translate-x-1 transition-all duration-200 text-base font-serif-ebgaramond text-calido-1 lg:text-lg">
+                  <span class="value-text group-hover:translate-x-1 transition-transform duration-200 ease-out text-base font-serif-ebgaramond text-calido-1 lg:text-lg">
                     {item.value}
                     {item.sub && (
                       <span class="block text-sm font-sans text-calido-4 mt-0.5 not-italic">
@@ -86,25 +86,12 @@ import WhatsappButton from "@workspace/ui/components/astro/WhatsappButton.astro"
 </section>
 
 <style>
-  .reveal {
-    opacity: 0;
-    transform: translateY(1rem);
-    transition:
-      opacity 0.55s ease,
-      transform 0.55s ease;
-  }
-
-  .reveal.is-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   .contact-row {
     text-decoration: none;
   }
 
   .arrow-icon {
-    transition: transform 0.2s ease;
+    transition: transform 200ms ease-out;
     overflow: visible;
   }
 

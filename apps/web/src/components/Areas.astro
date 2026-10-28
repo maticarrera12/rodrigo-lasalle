@@ -33,20 +33,20 @@ import { AREAS } from "@/const";
 								data-reveal-delay={Math.floor(index / 2) * 80}
 							>
 								<div class="flex items-center justify-between gap-4">
-									<p class="text-sm tabular-nums text-calido-4 transition-all duration-200 group-hover:translate-x-2">/ {area.n}</p>
-									<span class="flex shrink-0 items-center gap-1 text-sm text-calido-3 transition-all duration-200 group-hover:-translate-x-2" aria-hidden="true">
+									<p class="text-sm tabular-nums text-calido-4 transition-transform duration-200 ease-out group-hover:translate-x-2">/ {area.n}</p>
+									<span class="flex shrink-0 items-center gap-1 text-sm text-calido-3 transition-transform duration-200 ease-out group-hover:-translate-x-2" aria-hidden="true">
 										Ver más →
 									</span>
 								</div>
 
 								<div class="flex items-center gap-4">
-									<Icon name={area.icon} class="h-8 w-8 shrink-0 text-calido-3 transition-all duration-200 group-hover:translate-x-2" aria-hidden="true" />
-									<h2 class="text-2xl leading-snug text-calido-1 font-serif-ebgaramond transition-all duration-200 group-hover:translate-x-2 lg:text-[2rem]">
+									<Icon name={area.icon} class="h-8 w-8 shrink-0 text-calido-3 transition-transform duration-200 ease-out group-hover:translate-x-2" aria-hidden="true" />
+									<h2 class="text-2xl leading-snug text-calido-1 font-serif-ebgaramond transition-transform duration-200 ease-out group-hover:translate-x-2 lg:text-[2rem]">
 										{area.t}
 									</h2>
 								</div>
 
-								<p class="max-w-lg text-base leading-relaxed text-calido-4 transition-all duration-200 group-hover:translate-x-2">
+								<p class="max-w-lg text-base leading-relaxed text-calido-4 transition-transform duration-200 ease-out group-hover:translate-x-2">
 									{area.d}
 								</p>
 							</a>
@@ -57,21 +57,6 @@ import { AREAS } from "@/const";
 		</nav>
 	</div>
 </section>
-
-<style>
-	.reveal {
-		opacity: 0;
-		transform: translateY(1rem);
-		transition:
-			opacity 0.55s ease,
-			transform 0.55s ease;
-	}
-
-	.reveal.is-in {
-		opacity: 1;
-		transform: translateY(0);
-	}
-</style>
 
 <script>
 	import { initReveal } from "@/scripts/reveal";
