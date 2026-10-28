@@ -1,19 +1,10 @@
 ---
-import "@workspace/ui/globals.css";
 import Main from "@/layouts/main.astro";
 import { ABONOS } from "@/const";
 import CtaConsulta from "@/components/CtaConsulta.astro";
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Asesoramiento | Rodrigo Lasalle</title>
-  </head>
-  <body>
-    <Main>
+<Main title="Asesoramiento | Rodrigo Lasalle" description="Abonos de asesoramiento jurídico para personas y empresas: acompañamiento legal continuo, claro y a tu ritmo.">
       <section class="w-full pt-28 pb-8 lg:pt-32 lg:pb-16">
         <div class="container">
           <div class="grid gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-16 xl:gap-24" data-tab-anchor>
@@ -125,8 +116,6 @@ import CtaConsulta from "@/components/CtaConsulta.astro";
         </div>
       </section>
     </Main>
-  </body>
-</html>
 
 <style is:global>
   html {
@@ -135,22 +124,9 @@ import CtaConsulta from "@/components/CtaConsulta.astro";
 </style>
 
 <style>
-  .reveal {
-    opacity: 0;
-    transform: translateY(1rem);
-    transition:
-      opacity 0.55s ease,
-      transform 0.55s ease;
-  }
-
-  .reveal.is-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   .tab {
     opacity: 0.55;
-    transition: opacity 0.3s ease;
+    transition: opacity 200ms ease;
   }
 
   .tab:hover,
@@ -168,7 +144,7 @@ import CtaConsulta from "@/components/CtaConsulta.astro";
     background: var(--color-calido-3);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 350ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .tab[aria-selected="true"]::after {
@@ -188,7 +164,7 @@ import CtaConsulta from "@/components/CtaConsulta.astro";
 
   [data-tab-panel].is-entering,
   [data-tab-cta].is-entering {
-    animation: panel-in 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: panel-in 300ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   @media (prefers-reduced-motion: reduce) {

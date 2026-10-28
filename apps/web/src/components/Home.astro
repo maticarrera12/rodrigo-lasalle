@@ -19,7 +19,7 @@ import WhatsappButton from "@workspace/ui/components/astro/WhatsappButton.astro"
 		</div>
 
 		<div class="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-10 xl:gap-16">
-			<div class="flex w-full flex-col lg:w-1/2">
+			<div class="hero-in flex w-full flex-col lg:w-1/2">
 				<h1 class="text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.08] text-calido-1 font-serif-ebgaramond">
 					Entender un problema legal ya es difícil.
 					<span class="text-calido-3 italic">Hablar con tu abogado</span> no debería serlo.
@@ -30,7 +30,7 @@ import WhatsappButton from "@workspace/ui/components/astro/WhatsappButton.astro"
 				<div class="flex flex-col gap-5 pt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
 					<!-- <a
 						href={CONSULTATION_URL}
-						class="group inline-flex w-fit items-center gap-2 rounded-full bg-calido-2 px-6 py-3 text-sm text-primary-foreground transition-colors hover:bg-calido-1"
+						class="group inline-flex w-fit items-center gap-2 rounded-full bg-calido-2 px-6 py-3 text-sm text-primary-foreground transition-[background-color,transform] duration-200 active:scale-[0.97] hover:bg-calido-1"
 					>
 						Agendar una consulta
 						<Icon
@@ -42,7 +42,7 @@ import WhatsappButton from "@workspace/ui/components/astro/WhatsappButton.astro"
 				</div>
 			</div>
 
-			<div class="w-full lg:w-1/2">
+			<div class="hero-in w-full lg:w-1/2" style="--hero-delay: 120ms">
 				<figure>
 					<img
 						src="/images/hero.webp"
@@ -66,3 +66,22 @@ import WhatsappButton from "@workspace/ui/components/astro/WhatsappButton.astro"
 
 	<HeroStats />
 </section>
+
+<style>
+	@keyframes hero-in {
+		from {
+			opacity: 0;
+			transform: translateY(12px);
+		}
+	}
+
+	.hero-in {
+		animation: hero-in 600ms cubic-bezier(0.23, 1, 0.32, 1) var(--hero-delay, 0ms) backwards;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero-in {
+			animation: none;
+		}
+	}
+</style>

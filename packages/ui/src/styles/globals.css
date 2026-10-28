@@ -234,6 +234,18 @@
   body {
     @apply bg-background font-sans text-foreground;
     }
+  html {
+    scroll-padding-top: 5rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-calido-3);
+    outline-offset: 3px;
+  }
   button:not(:disabled), [role="button"]:not(:disabled) {
     cursor: pointer;
     }
@@ -246,3 +258,55 @@
 }
 
 
+
+/* Motion tokens + scroll reveal (driven by apps/web/src/scripts/reveal.ts) */
+:root {
+	--ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal {
+	opacity: 0;
+	transform: translateY(1rem);
+	transition:
+		opacity 500ms var(--ease-out-strong),
+		transform 500ms var(--ease-out-strong);
+}
+
+.reveal.is-in {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		transform: none;
+		transition: opacity 300ms ease;
+	}
+}
+
+/* Cross-page fade (progressive enhancement: unsupported browsers navigate normally) */
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
+
+	::view-transition-old(root) {
+		animation: 150ms ease-out both vt-out;
+	}
+
+	::view-transition-new(root) {
+		animation: 250ms var(--ease-out-strong) both vt-in;
+	}
+
+	@keyframes vt-out {
+		to {
+			opacity: 0;
+		}
+	}
+
+	@keyframes vt-in {
+		from {
+			opacity: 0;
+		}
+	}
+}

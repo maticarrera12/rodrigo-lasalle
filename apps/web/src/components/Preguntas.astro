@@ -93,19 +93,6 @@ import { PREGUNTAS } from "@/const";
 </section>
 
 <style>
-	.reveal {
-		opacity: 0;
-		transform: translateY(1rem);
-		transition:
-			opacity 0.55s ease,
-			transform 0.55s ease;
-	}
-
-	.reveal.is-in {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
 	/* Desktop: todas las respuestas apiladas en la misma celda; solo la activa es visible */
 	.faq-answer {
 		grid-area: 1 / 1;
@@ -113,16 +100,16 @@ import { PREGUNTAS } from "@/const";
 		visibility: hidden;
 		transform: translateY(0.75rem);
 		transition:
-			opacity 0.45s ease,
-			transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-			visibility 0s linear 0.45s;
+			opacity 200ms ease-out,
+			transform 300ms cubic-bezier(0.23, 1, 0.32, 1),
+			visibility 0s linear 200ms;
 	}
 
 	.faq-answer[data-active="true"] {
 		opacity: 1;
 		visibility: visible;
 		transform: translateY(0);
-		transition-delay: 0.1s, 0.1s, 0s;
+		transition-delay: 80ms, 80ms, 0s;
 	}
 
 	/* Pregunta seleccionada resaltada, el resto atenuado */
@@ -140,7 +127,7 @@ import { PREGUNTAS } from "@/const";
 		background: var(--color-calido-3);
 		transform: scaleX(0);
 		transform-origin: left;
-		transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+		transition: transform 350ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
 
 	.faq-item[data-active="true"]::before {
@@ -150,8 +137,8 @@ import { PREGUNTAS } from "@/const";
 	.faq-question {
 		opacity: 0.55;
 		transition:
-			opacity 0.3s ease,
-			transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+			opacity 200ms ease,
+			transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
 
 	.faq-item[data-active="true"] .faq-question,
@@ -170,7 +157,7 @@ import { PREGUNTAS } from "@/const";
 	}
 
 	.faq-chevron {
-		transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+		transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
 
 	.faq-item[data-active="true"] .faq-chevron {
@@ -187,7 +174,7 @@ import { PREGUNTAS } from "@/const";
 	.faq-mobile-panel {
 		display: grid;
 		grid-template-rows: 0fr;
-		transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+		transition: grid-template-rows 300ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
 
 	.faq-item[data-active="true"] .faq-mobile-panel {
